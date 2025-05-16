@@ -1,0 +1,18 @@
+{
+  "libri": [
+    {
+      "titolo": "Fiesta",
+      "autore": "Ernest Hemingway",
+      "valutazione": 10,
+      "generi": ["Romanzo"],
+      "statoLettura" : "leggendo"
+    },
+    {
+      "titolo": "Il Giovane Holden",
+      "autore": "J.D Salinger",
+      "valutazione": 9,
+      "generi": ["Romanzo"],
+      "statoLettura" : "letto"
+    }
+  ]
+}
