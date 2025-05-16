@@ -1,26 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                            http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
     <artifactId>untitled</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>untitled</name>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx</artifactId>
-            <version>11</version>
-            <type>pom</type>
-        </dependency>
-    </dependencies>
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <!-- Torque runtime -->
+        <dependency>
+            <groupId>org.apache.torque</groupId>
+            <artifactId>torque-runtime</artifactId>
+            <version>5.0</version>
+        </dependency>
 
+        <!-- PostgreSQL driver -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.3</version>
+        </dependency>
+
+        <!-- Logging (log4j2) -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
+            <version>2.13.3</version>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Torque plugin per generare sorgenti e SQL -->
+            <plugin>
+                <groupId>org.apache.torque</groupId>
+                <artifactId>torque-maven-plugin</artifactId>
+                <version>5.0</version>
+                <executions>
+                    <execution>
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <packaging>classpath</packaging>
+                            <configPackage>org.apache.torque.templates.om</configPackage>
+                            <sourceDir>src/main/schema</sourceDir>
+                            <options>
+                                <torque.om.package>org.example</torque.om.package>
+                                <torque.database>postgresql</torque.database>
+                            </options>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>generate-sql</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <packaging>classpath</packaging>
+                            <configPackage>org.apache.torque.templates.sql</configPackage>
+                            <sourceDir>src/main/schema</sourceDir>
+                            <defaultOutputDir>target/generated-sql</defaultOutputDir>
+                            <defaultOutputDirUsage>none</defaultOutputDirUsage>
+                            <options>
+                                <torque.database>postgresql</torque.database>
+                            </options>
+                        </configuration>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.torque</groupId>
+                        <artifactId>torque-templates</artifactId>
+                        <version>5.0</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <!-- SQL Maven Plugin per eseguire SQL generati -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>sql-maven-plugin</artifactId>
+                <version>1.4</version>
+                <configuration>
+                    <driver>org.postgresql.Driver</driver>
+                    <url>jdbc:postgresql://localhost:5432/librerua</url>
+                    <username>umberto</username>
+                    <password>batuffol</password>
+                    <onError>continue</onError>
+                    <autocommit>true</autocommit>
+                    <fileset>
+                        <basedir>${basedir}/target/generated-sql</basedir>
+                        <includes>
+                            <include>*.sql</include>
+                        </includes>
+                    </fileset>
+                </configuration>
+            </plugin>
+
+            <!-- Java Compiler -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.11.0</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+
+            <!-- Dependency plugin per copiare runtime libs -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.4.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>libs</outputDirectory>
+                            <includeScope>runtime</includeScope>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
 </project>

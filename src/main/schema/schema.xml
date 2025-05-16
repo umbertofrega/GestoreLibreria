@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<database xmlns="http://db.apache.org/torque/5.0/templates/database"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://db.apache.org/torque/5.0/templates/database
+        http://db.apache.org/torque/torque-5.0/documentation/orm-reference/database-5-0-strict.xsd"
+  name="GestoreLibrera"
+          defaultIdMethod="native"
+          defaultJavaType="object">
+
+	<table name="autore">
+		<column
+			name="ID"
+			required="true"
+			primaryKey="true"
+			type="INTEGER"
+			size="255"
+			description="Codice identificativo dell'autore"/>
+		<column 
+			name="nome"
+			required="true"
+			type="VARCHAR"
+			size="255"
+			description="Il nome dell'autore"/>
+		<column 
+			name="cognome"
+			required="true"
+			type="VARCHAR"
+			size="255"
+			description="Il cognome dell'autore"/>
+		</table>
+	<table name="genere"
+		idMethod="none">
+		<column 
+			name="nome"
+			primaryKey="true"
+			type="VARCHAR"
+			size="255"
+			description="Il nome del genere"/>
+	</table>			
+
+						
+	 <table name="libro"
+	 idMethod="none">
+	 	<column 
+	 		name="codice"
+	 		primaryKey="true"
+	 		required="true"
+	 		type="INTEGER"
+	 		size="255"
+	 		description="Codice ISBN"/>
+	 	<column 
+			name="nome"
+			required="true"
+			type="VARCHAR"
+			size="255"
+			description="Il nome dell'autore"/>
+	 	<column 
+	 		name="autore"
+	 		javaName="autoreId"
+	 		required="true"
+	 		type="INTEGER"
+	 		size="255"
+	 		description="Codice dell'autore"/>
+	 	<column 
+	 		name="genere"
+	 		javaName="genereName"
+	 		required="true"
+	 		type="VARCHAR"
+	 		size="255"
+	 		description="Genere del libro"/>
+	    <column 
+			name="valutazione"
+			required="false"
+		   	type="INTEGER"
+		   	size="255"
+		   	description="Stelle valutazione"/>
+		<column 
+			name="stato"
+			required="true"
+			type="VARCHAR"
+			size="255"
+			description="Stato della lettura"/>
+			<foreign-key foreignTable="autore">
+	 			<reference
+	 			local="autore"
+				foreign="ID"/>
+			</foreign-key>
+			<foreign-key foreignTable="genere">
+	 			<reference
+	 			local="genere"
+				foreign="nome"/>
+			</foreign-key>
+		</table>
+</database>
