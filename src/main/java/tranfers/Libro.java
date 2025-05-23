@@ -1,4 +1,4 @@
-package Tranfers;
+package tranfers;
 
 import java.util.LinkedList;
 
