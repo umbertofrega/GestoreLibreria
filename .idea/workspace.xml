@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b77f71e-82c9-464a-8a3f-c8585b859f95" name="Changes" comment="Initial commit 2">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Tranfers/Autore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Tranfers/Libro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/back/GestoreFiltri.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data/autori.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data/generi.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data/libri.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/back/GestoreLibreria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/GestoreLibri.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data/autori.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data/generi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data/libri.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data/libri.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +45,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/Tranfers/Libro.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/main/java/org/example/GestoreLibreria.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -62,26 +58,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;provaConJSON&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/umberto/Documents/anno_2/ing_del_software/Progetto/GestoreLibreria&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Errors&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.prove.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "provaConJSON",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/umberto/Documents/uni/anno_2/ing_del_software/Progetto/GestoreLibreria",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "Errors",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/data" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -110,6 +110,12 @@
       <workItem from="1747670305858" duration="4760000" />
       <workItem from="1747675777809" duration="1157000" />
       <workItem from="1747676961280" duration="96000" />
+      <workItem from="1747853819792" duration="36000" />
+      <workItem from="1747911208052" duration="25000" />
+      <workItem from="1748012341346" duration="640000" />
+      <workItem from="1748013545652" duration="700000" />
+      <workItem from="1748014466421" duration="2020000" />
+      <workItem from="1748027239618" duration="2128000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit 2">
       <option name="closed" value="true" />

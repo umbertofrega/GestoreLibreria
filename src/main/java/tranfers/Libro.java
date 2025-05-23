@@ -3,7 +3,7 @@ package tranfers;
 import java.util.LinkedList;
 
 public class Libro {
-    private int ISBN;
+    private int isbn;
     private String titolo;
     private String autore;
     private int valutazione;
@@ -11,7 +11,7 @@ public class Libro {
     private String statoLettura;
 
     public Libro(int id, String titolo, String autore, int valutazione, LinkedList<String> generi, String statoLettura) {
-        this.ISBN = id;
+        this.isbn = id;
         this.titolo = titolo;
         this.autore = autore;
         this.valutazione = valutazione;
@@ -22,7 +22,7 @@ public class Libro {
 
     @Override
     public String toString() {
-        return "codice ISBN=" + ISBN +
+        return "codice ISBN=" + isbn +
                 ", titolo='" + titolo + '\'' +
                 ", autore='" + autore + '\'' +
                 ", valutazione=" + valutazione +
@@ -30,8 +30,8 @@ public class Libro {
                 ", statoLettura='" + statoLettura + '\'';
     }
 
-    public int getISBN() {
-        return ISBN;
+    public int getIsbn() {
+        return isbn;
     }
 
     public String getTitolo() {
