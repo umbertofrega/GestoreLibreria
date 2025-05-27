@@ -18,7 +18,7 @@ public class GestoreLibri {
 
     private static final ObjectMapper mapper = new ObjectMapper();
     private static final File documento = new File(Path.of("src", "main", "resources", "data", "libri.json").toUri());
-    private static final GestoreLibri instance = null;
+    private static GestoreLibri instance = null;
 
 
     /**
@@ -27,7 +27,7 @@ public class GestoreLibri {
      * @param libro Un'oggetto di tipo libro
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
-    public static boolean inserisciLibro(Libro libro) {
+    public boolean inserisciLibro(Libro libro) {
         Collection<Libro> libri = getLibri();
         libri.add(libro);
         return scrivi(libri);
@@ -39,7 +39,7 @@ public class GestoreLibri {
      * @param libri Una lista di libro
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
-    public static boolean inserisciLibri(Collection<Libro> libri) {
+    public boolean inserisciLibri(Collection<Libro> libri) {
         return scrivi(libri);
     }
 
@@ -50,7 +50,7 @@ public class GestoreLibri {
      * @param libroNew il nuovo stato del libro
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
-    public static boolean aggiornaLibro(Libro libroOld, Libro libroNew) {
+    public boolean aggiornaLibro(Libro libroOld, Libro libroNew) {
         ArrayList<Libro> libri = (ArrayList<Libro>) getLibri();
         libri.remove(libroOld);
         libri.add(libroNew);
@@ -89,10 +89,9 @@ public class GestoreLibri {
      * classi differenti.
      */
     private static List<Libro> getLibri(){
-        List<Libro> libri = new ArrayList<>();
-
+        List<Libro> libri;
         try {
-            libri = mapper.readValue(documento,new TypeReference<List<Libro>>(){});
+            libri = mapper.readValue(documento,new TypeReference<>(){});
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
