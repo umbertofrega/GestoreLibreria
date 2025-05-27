@@ -18,10 +18,10 @@ public class GestoreFiltri {
     private GestoreFiltri() {}
 
     public List<Libro> getLibri(){
-        List<Libro> libri = new ArrayList<>();
+        List<Libro> libri;
 
         try {
-            libri = mapper.readValue(documento,new TypeReference<List<Libro>>(){});
+            libri = mapper.readValue(documento,new TypeReference<>(){});
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
