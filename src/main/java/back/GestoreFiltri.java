@@ -13,7 +13,7 @@ public class GestoreFiltri {
 
     private static ObjectMapper mapper = new ObjectMapper();
     private static File documento = new File(Path.of("src","main","resources","data","libri.json").toUri());
-    private static GestoreFiltri istance = new GestoreFiltri();
+    private static GestoreFiltri instance = new GestoreFiltri();
 
     private GestoreFiltri() {}
 
@@ -30,12 +30,12 @@ public class GestoreFiltri {
 
     /*
     *  Rendo il costruttore private così che gli accessi alla
-    *  classe siano regolati solo dal metodo getIstance()
+    *  classe siano regolati solo dal metodo getInstance()
     */
-    public static GestoreFiltri getIstance() {
-        if(istance == null){
+    public static GestoreFiltri getInstance() {
+        if(instance == null){
             return new GestoreFiltri();
         }
-        return istance;
+        return instance;
     }
 }

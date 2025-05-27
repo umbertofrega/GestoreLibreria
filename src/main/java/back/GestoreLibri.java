@@ -11,11 +11,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/** Una classe Singleton che gestisce il
+ *  salvataggio in memoria secondaria dei libri.
+ */
 public class GestoreLibri {
 
     private static final ObjectMapper mapper = new ObjectMapper();
     private static final File documento = new File(Path.of("src", "main", "resources", "data", "libri.json").toUri());
-    private static final GestoreLibri istance = null;
+    private static final GestoreLibri instance = null;
 
 
     /**
@@ -68,16 +71,16 @@ public class GestoreLibri {
      *
      * @return L'istanza di GestoreLibri
      */
-    public static synchronized GestoreLibri getIstance() {
-        if (istance == null) {
+    public static synchronized GestoreLibri getInstance() {
+        if (instance == null) {
             return new GestoreLibri();
         }
-        return istance;
+        return instance;
     }
 
     /*
      *  Rendo il costruttore private così che gli accessi alla
-     *  classe siano regolati solo dal metodo getIstance()
+     *  classe siano regolati solo dal metodo getInstance()
      */
     private GestoreLibri() {}
 
