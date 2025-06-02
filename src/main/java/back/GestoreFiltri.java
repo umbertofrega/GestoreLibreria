@@ -15,8 +15,18 @@ public class GestoreFiltri {
     private static File documento = new File(Path.of("src","main","resources","data","libri.json").toUri());
     private static GestoreFiltri instance = new GestoreFiltri();
 
+    /*
+     *  Rendo il costruttore private così che gli accessi alla
+     *  classe siano regolati solo dal metodo getInstance()
+     */
     private GestoreFiltri() {}
 
+
+    /**
+     * Permette di ricevere la lista dei libri non ordinata
+     *
+     * @return Una lista di libri
+     */
     public List<Libro> getLibri(){
         List<Libro> libri;
 
@@ -28,10 +38,7 @@ public class GestoreFiltri {
         return libri;
     }
 
-    /*
-    *  Rendo il costruttore private così che gli accessi alla
-    *  classe siano regolati solo dal metodo getInstance()
-    */
+
     public static GestoreFiltri getInstance() {
         if(instance == null){
             return new GestoreFiltri();

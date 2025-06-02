@@ -11,7 +11,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/** Una classe Singleton che gestisce il
+/**
+ *  Una classe Singleton che gestisce il
  *  salvataggio in memoria secondaria dei libri.
  */
 public class GestoreLibri {
