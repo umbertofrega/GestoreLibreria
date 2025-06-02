@@ -5,7 +5,7 @@ import back.Stato;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public abstract class LibroAstratto implements Cloneable{
+public abstract class LibroAstratto{
     protected int isbn;
     protected String titolo;
     protected String autore;
@@ -13,10 +13,6 @@ public abstract class LibroAstratto implements Cloneable{
     protected ArrayList<String> generi;
     protected Stato statoLettura;
 
-    @Override
-    protected synchronized LibroAstratto clone() throws CloneNotSupportedException {
-        return (LibroAstratto) super.clone();
-    }
 
     public int getIsbn() {
         return isbn;
@@ -65,5 +61,4 @@ public abstract class LibroAstratto implements Cloneable{
     public void setGeneri(ArrayList<String> generi) {
         this.generi = (ArrayList<String>) generi.clone();
     }
-
 }

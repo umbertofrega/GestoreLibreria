@@ -13,7 +13,6 @@ public class Libro extends LibroAstratto{
     private int valutazione;
     private ArrayList<String> generi;
     private Stato statoLettura;
-    private static Libro prototype;
 
     /*
      * Richiesto da Jackson
@@ -52,25 +51,5 @@ public class Libro extends LibroAstratto{
 
     public Stato getStatoLettura() {
         return statoLettura;
-    }
-
-    public static Libro getPrototype() {
-        if (prototype == null) {
-            prototype = new Libro();
-        }
-        return prototype;
-    }
-
-    @Override @JsonCreator
-    public Libro clone() {
-        try {
-            Libro clone = (Libro) super.clone();
-            clone.statoLettura = Stato.DA_LEGGERE;
-            clone.valutazione = 0;
-            clone.generi = (ArrayList<String>) this.generi.clone();
-            return clone;
-        } catch (CloneNotSupportedException e) {
-            throw new AssertionError(e);
-        }
     }
 }
