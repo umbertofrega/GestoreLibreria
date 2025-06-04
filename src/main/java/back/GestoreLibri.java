@@ -40,7 +40,19 @@ public class GestoreLibri {
      * @param libri Una lista di libro
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
-    public boolean inserisciLibri(Collection<Libro> libri) {
+    public boolean inserisciLibro(Collection<Libro> libri) {
+        return scrivi(libri);
+    }
+
+
+    /**
+     * Permette di rimuovere un libro salvato in memoria
+     * @param libro Un'oggetto di tipo libro
+     * @return True se l'operazione è andata a buon fine <br> False altrimenti
+     */
+    public boolean rimuoviLibro(Libro libro) {
+        Collection<Libro> libri = getLibri();
+        libri.remove(libro);
         return scrivi(libri);
     }
 
@@ -89,8 +101,8 @@ public class GestoreLibri {
      * Riporto il metodo getLibri() di GestoreFiltri qui per diminuire la coesione tra le
      * classi differenti.
      */
-    private static List<Libro> getLibri(){
-        List<Libro> libri;
+    private static Collection<Libro> getLibri(){
+        Collection<Libro> libri;
         try {
             libri = mapper.readValue(documento,new TypeReference<>(){});
         } catch (IOException e) {
