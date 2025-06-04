@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b77f71e-82c9-464a-8a3f-c8585b859f95" name="Changes" comment="reso i metodi dinamici e piccoli fix">
-      <change afterPath="$PROJECT_DIR$/src/main/java/back/Stato.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/tranfers/LibroAstratto.java" afterDir="false" />
+    <list default="true" id="6b77f71e-82c9-464a-8a3f-c8585b859f95" name="Changes" comment="aggiunto il metodo per rimuovre i libri">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/back/GestoreFiltri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/GestoreFiltri.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/back/Stato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/Stato.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/tranfers/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tranfers/Libro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/libri.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data/libri.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tranfers/LibroAstratto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tranfers/LibroAstratto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +75,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.keymap",
+    "settings.editor.selected.configurable": "editor.preferences.completion",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -126,6 +126,8 @@
       <workItem from="1748455047198" duration="131000" />
       <workItem from="1748463274462" duration="2121000" />
       <workItem from="1748465404558" duration="301000" />
+      <workItem from="1748864452688" duration="1910000" />
+      <workItem from="1749030462333" duration="2900000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit 2">
       <option name="closed" value="true" />
@@ -167,7 +169,23 @@
       <option name="project" value="LOCAL" />
       <updated>1748367543739</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="refactoring di Libro e creazione di LibroAstratto">
+      <option name="closed" value="true" />
+      <created>1748860187536</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1748860187536</updated>
+    </task>
+    <task id="LOCAL-00007" summary="aggiunto il metodo per rimuovre i libri">
+      <option name="closed" value="true" />
+      <created>1749030660121</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1749030660121</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +221,9 @@
     <MESSAGE value="aggiustato un typo" />
     <MESSAGE value="reso i metodi dinamici" />
     <MESSAGE value="reso i metodi dinamici e piccoli fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="reso i metodi dinamici e piccoli fix" />
+    <MESSAGE value="refactoring di Libro e creazione di LibroAstratto" />
+    <MESSAGE value="aggiunto il metodo per rimuovre i libri" />
+    <option name="LAST_COMMIT_MESSAGE" value="aggiunto il metodo per rimuovre i libri" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -4,6 +4,7 @@ import back.Stato;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Objects;
 
 public abstract class LibroAstratto{
     protected int isbn;
@@ -61,4 +62,13 @@ public abstract class LibroAstratto{
     public void setGeneri(ArrayList<String> generi) {
         this.generi = (ArrayList<String>) generi.clone();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LibroAstratto that = (LibroAstratto) o;
+        return isbn == that.isbn;
+    }
+
 }

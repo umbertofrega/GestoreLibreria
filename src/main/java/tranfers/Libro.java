@@ -52,4 +52,6 @@ public class Libro extends LibroAstratto{
     public Stato getStatoLettura() {
         return statoLettura;
     }
+
+
 }
