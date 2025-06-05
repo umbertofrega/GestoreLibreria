@@ -2,7 +2,7 @@ package back;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import tranfers.Libro;
+import tranfer.Libro;
 
 import java.io.File;
 import java.io.IOException;
@@ -48,7 +48,7 @@ class GestoreFiltri {
      */
     List<Libro> ordinaPerTitolo(boolean crescente){
         List<Libro> libri = getLibri();
-        libri.sort(Comparator.comparing(Libro::getTitolo));
+        libri.sort(Comparator.comparing(Libro::titolo));
 
         if(!crescente)
             libri.reversed();
@@ -64,7 +64,7 @@ class GestoreFiltri {
      */
     List<Libro> ordinaPerAutore(boolean crescente){
         List<Libro> libri = getLibri();
-        libri.sort(Comparator.comparing(Libro::getAutore));
+        libri.sort(Comparator.comparing(Libro::autore));
 
         if(!crescente)
             libri.reversed();
@@ -81,7 +81,7 @@ class GestoreFiltri {
     List<Libro> filtraGeneri(List<String> genere){
         List<Libro> libri = getLibri();
 
-        libri.removeIf(l -> !l.getGeneri().contains(genere));
+        libri.removeIf(l -> !l.generi().contains(genere));
 
         return libri;
     }
@@ -95,7 +95,7 @@ class GestoreFiltri {
     List<Libro> filtraStato(Stato stato){
         List<Libro> libri = getLibri();
 
-        libri.removeIf(l -> !l.getStatoLettura().equals(stato));
+        libri.removeIf(l -> !l.statoLettura().equals(stato));
 
         return libri;
     }
@@ -112,7 +112,7 @@ class GestoreFiltri {
         List<Libro> risultato = new ArrayList<>();
 
         for (Libro l : libri) {
-            if(l.getAutore().equals(ricerca)){
+            if(l.autore().equals(ricerca)){
                 risultato.add(l);
             }
         }
@@ -130,7 +130,7 @@ class GestoreFiltri {
         List<Libro> risultato = new ArrayList<>();
 
         for (Libro l : libri) {
-            if(l.getTitolo().equals(ricerca)){
+            if(l.titolo().equals(ricerca)){
                 risultato.add(l);
             }
         }
