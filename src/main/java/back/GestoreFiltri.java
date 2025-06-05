@@ -7,13 +7,15 @@ import tranfers.Libro;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
-public class GestoreFiltri {
+class GestoreFiltri {
 
-    private static ObjectMapper mapper = new ObjectMapper();
-    private static File documento = new File(Path.of("src","main","resources","data","libri.json").toUri());
-    private static GestoreFiltri instance = new GestoreFiltri();
+    private static final ObjectMapper mapper = new ObjectMapper();
+    private static final File documento = new File(Path.of("src","main","resources","data","libri.json").toUri());
+    private static final GestoreFiltri instance = new GestoreFiltri();
 
     /*
      *  Rendo il costruttore private così che gli accessi alla
@@ -27,7 +29,7 @@ public class GestoreFiltri {
      *
      * @return Una lista di libri
      */
-    public List<Libro> getLibri(){
+    List<Libro> getLibri(){
         List<Libro> libri;
 
         try {
@@ -44,7 +46,7 @@ public class GestoreFiltri {
      * @param crescente True la lista è ordinata in ordine crescente <br> False in ordine decrescente.
      * @return la lista oridinata.
      */
-    public List<Libro> ordinaPerTitolo(boolean crescente){
+    List<Libro> ordinaPerTitolo(boolean crescente){
         List<Libro> libri = getLibri();
         libri.sort(Comparator.comparing(Libro::getTitolo));
 
@@ -60,7 +62,7 @@ public class GestoreFiltri {
      * @param crescente True la lista è ordinata in ordine crescente <br> False in ordine decrescente.
      * @return la lista oridinata.
      */
-    public List<Libro> ordinaPerAutore(boolean crescente){
+    List<Libro> ordinaPerAutore(boolean crescente){
         List<Libro> libri = getLibri();
         libri.sort(Comparator.comparing(Libro::getAutore));
 
@@ -76,7 +78,7 @@ public class GestoreFiltri {
      * @param genere La lista dei generi che vogliono essere visualizzati
      * @return la lista filtrata
      */
-    public List<Libro> filtraGeneri(List<String> genere){
+    List<Libro> filtraGeneri(List<String> genere){
         List<Libro> libri = getLibri();
 
         libri.removeIf(l -> !l.getGeneri().contains(genere));
@@ -90,7 +92,7 @@ public class GestoreFiltri {
      * @param stato Lo stato lettura che vuole essere visualizzato
      * @return la lista filtrata
      */
-    public List<Libro> filtraStato(Stato stato){
+    List<Libro> filtraStato(Stato stato){
         List<Libro> libri = getLibri();
 
         libri.removeIf(l -> !l.getStatoLettura().equals(stato));
@@ -105,7 +107,7 @@ public class GestoreFiltri {
      * @param ricerca la stringa contenente il nome dell'autore
      * @return la lista dei libri che hanno l'autore richiesto
      */
-    public List<Libro> cercaPerAutore(String ricerca){
+    List<Libro> cercaPerAutore(String ricerca){
         List<Libro> libri = getLibri();
         List<Libro> risultato = new ArrayList<>();
 
@@ -117,6 +119,23 @@ public class GestoreFiltri {
         return risultato;
     }
 
+    /**
+     *  Ricerca la lista dei libri scritti da un determinato autore
+     *
+     * @param ricerca la stringa contenente il nome dell'autore
+     * @return la lista dei libri che hanno l'autore richiesto
+     */
+    List<Libro> cercaPerTitolo(String ricerca){
+        List<Libro> libri = getLibri();
+        List<Libro> risultato = new ArrayList<>();
+
+        for (Libro l : libri) {
+            if(l.getTitolo().equals(ricerca)){
+                risultato.add(l);
+            }
+        }
+        return risultato;
+    }
 
 
     /**
@@ -124,7 +143,7 @@ public class GestoreFiltri {
      *
      * @return L'istanza di GestoreFiltri
      */
-    public static GestoreFiltri getInstance() {
+    static GestoreFiltri getInstance() {
         if(instance == null){
             return new GestoreFiltri();
         }

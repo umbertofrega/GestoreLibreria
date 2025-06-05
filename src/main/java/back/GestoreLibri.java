@@ -9,13 +9,11 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 /**
  *  Una classe Singleton che gestisce il
  *  salvataggio in memoria secondaria dei libri.
- */
-public class GestoreLibri {
+ */ class GestoreLibri {
 
     private static final ObjectMapper mapper = new ObjectMapper();
     private static final File documento = new File(Path.of("src", "main", "resources", "data", "libri.json").toUri());
@@ -28,7 +26,7 @@ public class GestoreLibri {
      * @param libro Un'oggetto di tipo libro
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
-    public boolean inserisciLibro(Libro libro) {
+    boolean inserisciLibro(Libro libro) {
         Collection<Libro> libri = getLibri();
         libri.add(libro);
         return scrivi(libri);
@@ -40,7 +38,7 @@ public class GestoreLibri {
      * @param libri Una lista di libro
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
-    public boolean inserisciLibro(Collection<Libro> libri) {
+    boolean inserisciLibro(Collection<Libro> libri) {
         return scrivi(libri);
     }
 
@@ -50,7 +48,7 @@ public class GestoreLibri {
      * @param libro Un'oggetto di tipo libro
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
-    public boolean rimuoviLibro(Libro libro) {
+    boolean rimuoviLibro(Libro libro) {
         Collection<Libro> libri = getLibri();
         libri.remove(libro);
         return scrivi(libri);
@@ -63,7 +61,7 @@ public class GestoreLibri {
      * @param libroNew il nuovo stato del libro
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
-    public boolean aggiornaLibro(Libro libroOld, Libro libroNew) {
+    boolean aggiornaLibro(Libro libroOld, Libro libroNew) {
         ArrayList<Libro> libri = (ArrayList<Libro>) getLibri();
         libri.remove(libroOld);
         libri.add(libroNew);
@@ -84,7 +82,7 @@ public class GestoreLibri {
      *
      * @return L'istanza di GestoreLibri
      */
-    public static synchronized GestoreLibri getInstance() {
+    static synchronized GestoreLibri getInstance() {
         if (instance == null) {
             return new GestoreLibri();
         }
