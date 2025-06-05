@@ -2,7 +2,6 @@ package back;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import tranfers.Autore;
 import tranfers.Libro;
 
 import java.io.File;
