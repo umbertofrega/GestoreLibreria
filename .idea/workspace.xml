@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b77f71e-82c9-464a-8a3f-c8585b859f95" name="Changes" comment="refactoring generale" />
+    <list default="true" id="6b77f71e-82c9-464a-8a3f-c8585b859f95" name="Changes" comment="refactoring">
+      <change afterPath="$PROJECT_DIR$/src/main/java/back/Facade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/back/Ordinamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/front/Placeholder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tranfers/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tranfers/Libro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tranfers/LibroAstratto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tranfers/LibroAstratto.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -69,6 +77,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "editor.preferences.completion",
     "vue.rearranger.settings.migration": "true"
   }
@@ -84,8 +93,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.24807.4" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.24807.4" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.26775.15" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.26775.15" />
       </set>
     </attachedChunks>
   </component>
@@ -122,6 +131,9 @@
       <workItem from="1748465404558" duration="301000" />
       <workItem from="1748864452688" duration="1910000" />
       <workItem from="1749030462333" duration="3769000" />
+      <workItem from="1749123777233" duration="214000" />
+      <workItem from="1749124019115" duration="877000" />
+      <workItem from="1749124950785" duration="2575000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit 2">
       <option name="closed" value="true" />
@@ -195,7 +207,23 @@
       <option name="project" value="LOCAL" />
       <updated>1749036405033</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="rimosso la classe Autore">
+      <option name="closed" value="true" />
+      <created>1749123973769</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1749123973769</updated>
+    </task>
+    <task id="LOCAL-00011" summary="refactoring">
+      <option name="closed" value="true" />
+      <created>1749126450077</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1749126450077</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,7 +263,9 @@
     <MESSAGE value="aggiunto il metodo per rimuovre i libri" />
     <MESSAGE value="aggiunto nuove funzionalità a gestorefiltri" />
     <MESSAGE value="refactoring generale" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring generale" />
+    <MESSAGE value="rimosso la classe Autore" />
+    <MESSAGE value="refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
