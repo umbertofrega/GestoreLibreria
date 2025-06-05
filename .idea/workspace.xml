@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b77f71e-82c9-464a-8a3f-c8585b859f95" name="Changes" comment="refactoring">
-      <change afterPath="$PROJECT_DIR$/src/main/java/back/Facade.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/back/Ordinamento.java" afterDir="false" />
+    <list default="true" id="6b77f71e-82c9-464a-8a3f-c8585b859f95" name="Changes" comment="aggiunto classe facade">
+      <change afterPath="$PROJECT_DIR$/src/main/java/prova.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/tranfer/Libro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/back/Facade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/Facade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/back/GestoreFiltri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/GestoreFiltri.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/back/GestoreLibri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/GestoreLibri.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/front/Placeholder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tranfers/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tranfers/Libro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/tranfers/LibroAstratto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/tranfers/LibroAstratto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tranfers/Libro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tranfers/LibroAstratto.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -66,6 +69,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "Application.prova.executor": "Run",
     "Application.prove.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -133,7 +137,7 @@
       <workItem from="1749030462333" duration="3769000" />
       <workItem from="1749123777233" duration="214000" />
       <workItem from="1749124019115" duration="877000" />
-      <workItem from="1749124950785" duration="2575000" />
+      <workItem from="1749124950785" duration="3532000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit 2">
       <option name="closed" value="true" />
@@ -223,7 +227,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749126450077</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="aggiunto classe facade">
+      <option name="closed" value="true" />
+      <created>1749127704231</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1749127704232</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -265,7 +277,8 @@
     <MESSAGE value="refactoring generale" />
     <MESSAGE value="rimosso la classe Autore" />
     <MESSAGE value="refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring" />
+    <MESSAGE value="aggiunto classe facade" />
+    <option name="LAST_COMMIT_MESSAGE" value="aggiunto classe facade" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
