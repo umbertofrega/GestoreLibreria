@@ -11,17 +11,17 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-class GestoreFiltri {
+class GestoreRicerche {
 
     private static final ObjectMapper mapper = new ObjectMapper();
     private static final File documento = new File(Path.of("src","main","resources","data","libri.json").toUri());
-    private static final GestoreFiltri instance = new GestoreFiltri();
+    private static final GestoreRicerche instance = new GestoreRicerche();
 
     /*
      *  Rendo il costruttore private così che gli accessi alla
      *  classe siano regolati solo dal metodo getInstance()
      */
-    private GestoreFiltri() {}
+    private GestoreRicerche() {}
 
 
     /**
@@ -143,9 +143,9 @@ class GestoreFiltri {
      *
      * @return L'istanza di GestoreFiltri
      */
-    static GestoreFiltri getInstance() {
+    static GestoreRicerche getInstance() {
         if(instance == null){
-            return new GestoreFiltri();
+            return new GestoreRicerche();
         }
         return instance;
     }

@@ -5,36 +5,36 @@ import tranfer.Libro;
 import java.util.List;
 
 public class Facade {
-    private static GestoreFiltri gestoreFiltri;
+    private static GestoreRicerche gestoreRicerche;
     private static GestoreLibri gestoreLibri;
 
     public List<Libro> ordinaLibri(Ordinamento o, boolean crescente){
-        gestoreFiltri = GestoreFiltri.getInstance();
+        gestoreRicerche = GestoreRicerche.getInstance();
         switch (o){
             case Ordinamento.AUTORE:
-                return gestoreFiltri.ordinaPerAutore(crescente);
+                return gestoreRicerche.ordinaPerAutore(crescente);
             case Ordinamento.TITOLO:
-                return gestoreFiltri.ordinaPerTitolo(crescente);
+                return gestoreRicerche.ordinaPerTitolo(crescente);
         }
         return null;
     }
 
     public List<Libro> filtraPer(Stato stato){
-        gestoreFiltri = GestoreFiltri.getInstance();
-        return gestoreFiltri.filtraStato(stato);
+        gestoreRicerche = GestoreRicerche.getInstance();
+        return gestoreRicerche.filtraStato(stato);
     }
 
     public List<Libro> filtraPer(List<String> generi){
-        gestoreFiltri = GestoreFiltri.getInstance();
-        return gestoreFiltri.filtraGeneri(generi);
+        gestoreRicerche = GestoreRicerche.getInstance();
+        return gestoreRicerche.filtraGeneri(generi);
     }
 
-    public List<Libro> cerca(boolean tipo,String ricerca){
-        gestoreFiltri= GestoreFiltri.getInstance();
-        if(tipo){
-            return gestoreFiltri.cercaPerAutore(ricerca);
+    public List<Libro> cerca(Ordinamento tipo,String ricerca){
+        gestoreRicerche = GestoreRicerche.getInstance();
+        if(tipo.equals(Ordinamento.AUTORE)){
+            return gestoreRicerche.cercaPerAutore(ricerca);
         }
-        return gestoreFiltri.cercaPerTitolo(ricerca);
+        return gestoreRicerche.cercaPerTitolo(ricerca);
     }
 
     public boolean inserisciLibro(Libro libro){
