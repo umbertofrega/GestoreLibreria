@@ -5,9 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b77f71e-82c9-464a-8a3f-c8585b859f95" name="Changes" comment="aggiunta la classe Facade">
-      <change afterPath="$PROJECT_DIR$/src/main/java/prova.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/transfer/LibroBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/back/Facade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/Facade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/back/GestoreLibri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/GestoreLibri.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/back/GestoreRicerche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/GestoreRicerche.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/tranfer/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/transfer/Libro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data/autori.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data/generi.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data/libri.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data/libri.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,6 +142,7 @@
       <workItem from="1749124019115" duration="877000" />
       <workItem from="1749124950785" duration="3830000" />
       <workItem from="1749203296725" duration="299000" />
+      <workItem from="1749204073530" duration="1601000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit 2">
       <option name="closed" value="true" />

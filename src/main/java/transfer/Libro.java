@@ -1,4 +1,4 @@
-package tranfer;
+package transfer;
 
 import back.Stato;
 
@@ -11,4 +11,8 @@ public record Libro(
         int valutazione,
         List<String> generi,
         Stato statoLettura
-) { }
+) {
+    public Libro(LibroBuilder lb){
+        this(lb.isbn,lb.titolo, lb.autore, lb.valutazione,lb.generi,lb.statoLettura);
+    }
+}

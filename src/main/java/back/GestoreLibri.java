@@ -2,7 +2,7 @@ package back;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import tranfer.Libro;
+import transfer.Libro;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,7 +13,8 @@ import java.util.Collection;
 /**
  *  Una classe Singleton che gestisce il
  *  salvataggio in memoria secondaria dei libri.
- */ class GestoreLibri {
+ */
+class GestoreLibri {
 
     private static final ObjectMapper mapper = new ObjectMapper();
     private static final File documento = new File(Path.of("src", "main", "resources", "data", "libri.json").toUri());
