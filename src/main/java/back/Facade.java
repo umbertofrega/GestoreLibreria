@@ -8,15 +8,9 @@ public class Facade {
     private static GestoreRicerche gestoreRicerche;
     private static GestoreLibri gestoreLibri;
 
-    public List<Libro> ordinaLibri(Ordinamento o, boolean crescente){
+    public List<Libro> getLibri(){
         gestoreRicerche = GestoreRicerche.getInstance();
-        switch (o){
-            case Ordinamento.AUTORE:
-                return gestoreRicerche.ordinaPerAutore(crescente);
-            case Ordinamento.TITOLO:
-                return gestoreRicerche.ordinaPerTitolo(crescente);
-        }
-        return null;
+        return gestoreRicerche.getLibri();
     }
 
     public List<Libro> filtraPer(Stato stato){

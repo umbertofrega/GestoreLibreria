@@ -8,7 +8,6 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 class GestoreRicerche {
@@ -37,38 +36,6 @@ class GestoreRicerche {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return libri;
-    }
-
-    /**
-     * Ritorna una lista di libri ordinata per titolo
-     *
-     * @param crescente True la lista è ordinata in ordine crescente <br> False in ordine decrescente.
-     * @return la lista oridinata.
-     */
-    List<Libro> ordinaPerTitolo(boolean crescente){
-        List<Libro> libri = getLibri();
-        libri.sort(Comparator.comparing(Libro::titolo));
-
-        if(!crescente)
-            libri.reversed();
-
-        return libri;
-    }
-
-    /**
-     * Ritorna una lista di libri ordinata per autore
-     *
-     * @param crescente True la lista è ordinata in ordine crescente <br> False in ordine decrescente.
-     * @return la lista oridinata.
-     */
-    List<Libro> ordinaPerAutore(boolean crescente){
-        List<Libro> libri = getLibri();
-        libri.sort(Comparator.comparing(Libro::autore));
-
-        if(!crescente)
-            libri.reversed();
-
         return libri;
     }
 
