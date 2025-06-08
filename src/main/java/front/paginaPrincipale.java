@@ -6,12 +6,13 @@ import javafx.application.Application;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.geometry.Insets;
-import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import transfer.Libro;
 
@@ -19,11 +20,14 @@ import java.util.List;
 
 public class paginaPrincipale extends Application {
     private TableView<Libro> table = new TableView();
+    private final Facade facade = new Facade();
 
     @Override
     public void start(Stage stage) {
-        Scene scene = new Scene(new Group());
-        stage.setTitle("PaginaPrincipale");
+        StackPane root = new StackPane();
+        Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+        stage.setTitle("Gestore Libreria");
         table.setEditable(false);
 
         initTable();
@@ -32,14 +36,16 @@ public class paginaPrincipale extends Application {
 
         table.getItems().addAll(facade.getLibri());
 
-        Label label = new Label("PaginaPrincipale");
+        final HBox bottoni = boxBottoni(stage);
+        Label label = new Label("Gestore Libreria");
 
         final VBox vbox = new VBox();
         vbox.setSpacing(5);
-        vbox.setPadding(new Insets(10, 0, 0, 10));
-        vbox.getChildren().addAll(label, table);
+        vbox.setPadding(new Insets(15, 0, 0, 10));
+        vbox.getChildren().addAll(label,bottoni, table);
+        VBox.setVgrow(table, Priority.ALWAYS);
 
-        ((Group) scene.getRoot()).getChildren().addAll(vbox);
+        root.getChildren().addAll(vbox);
 
         stage.setScene(scene);
 
@@ -47,6 +53,14 @@ public class paginaPrincipale extends Application {
     }
 
     private void initTable() {
+
+        table.setMaxWidth(Screen.getPrimary().getVisualBounds().getWidth());
+        table.setMaxHeight(Screen.getPrimary().getVisualBounds().getHeight());
+
+        table.setMinWidth(Screen.getPrimary().getVisualBounds().getWidth()/2);
+        table.setMinHeight(Screen.getPrimary().getVisualBounds().getHeight()/2);
+
+
         TableColumn<Libro,Integer> ISBN = new TableColumn("ISBN");
         TableColumn<Libro,String> titolo = new TableColumn("Titolo");
         TableColumn<Libro,String> autore = new TableColumn("Autore");
@@ -64,6 +78,36 @@ public class paginaPrincipale extends Application {
         table.getColumns().addAll(ISBN, titolo, autore, valutazione, generi, statoLettura);
     }
 
+    private HBox boxBottoni(Stage stage) {
+        Button aggiungiLibro = new Button("Aggiungi Libro");
+        Button modificaLibro = new Button("Modifica Libro");
+        Button eliminaLibro = new Button("Elimina Libro");
+
+        eliminaLibro.setOnAction(e -> {
+            Libro libro = table.getSelectionModel().getSelectedItem();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Conferma Eliminazione");
+            alert.setHeaderText("Guarda, una finestra");
+            alert.setContentText("Sei sicuro di voler eliminare questo libro?");
+            alert.showAndWait();
+            if(alert.getResult() == ButtonType.OK) {
+                table.getItems().remove(table.getSelectionModel().getSelectedItem());
+                facade.rimuoviLibro(libro);
+            }
+        });
+
+        aggiungiLibro.setOnAction(e -> {
+            Libro libro = FinestraAggiunta.crea();
+            System.out.println(libro);
+        });
+
+        final HBox bottoni = new HBox();
+
+        bottoni.getChildren().addAll(aggiungiLibro, modificaLibro, eliminaLibro);
+        bottoni.setSpacing(10);
+
+        return bottoni;
+    }
 
     public static void main(String[] args) {
         launch();

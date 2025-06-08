@@ -15,4 +15,5 @@ public record Libro(
     public Libro(LibroBuilder lb){
         this(lb.isbn,lb.titolo, lb.autore, lb.valutazione,lb.generi,lb.statoLettura);
     }
+
 }
