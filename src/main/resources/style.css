@@ -1,0 +1,173 @@
+/* === Base === */
+.root {
+    -fx-base: #282828;
+    -fx-background: #282828;
+    -fx-background-color: #282828;
+    -fx-text-fill: #ebdbb2;
+    -fx-font-family: "JetBrains Mono", monospace;
+    -fx-font-size: 14px;
+}
+
+/* === Label === */
+.label {
+    -fx-text-fill: #ebdbb2;
+    -fx-font-size: 14px;
+}
+
+/* === Button === */
+.button {
+    -fx-background-color: #d79921;
+    -fx-text-fill: #282828;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+}
+.button:hover {
+    -fx-background-color: #fabd2f;
+}
+.button:pressed {
+    -fx-background-color: #b57614;
+}
+
+/* === TextField === */
+.text-field {
+    -fx-background-color: #3c3836;
+    -fx-text-fill: #ebdbb2;
+    -fx-border-color: #665c54;
+    -fx-border-radius: 4;
+}
+
+/* === TextArea === */
+.text-area {
+    -fx-background-color: #3c3836;
+    -fx-text-fill: #ebdbb2;
+    -fx-border-color: #665c54;
+}
+.text-area .content {
+    -fx-background-color: #3c3836;
+}
+
+/* === ComboBox === */
+.combo-box {
+    -fx-background-color: #3c3836;
+    -fx-border-color: #665c54;
+    -fx-border-radius: 4;
+}
+.combo-box .arrow-button {
+    -fx-background-color: #504945;
+}
+.combo-box .arrow-button:hover {
+    -fx-background-color: #665c54;
+}
+.combo-box .list-cell {
+    -fx-text-fill: #ebdbb2;
+    -fx-background-color: #3c3836;
+}
+.combo-box-popup .list-view {
+    -fx-background-color: #3c3836;
+}
+
+/* === CheckBox === */
+.check-box {
+    -fx-text-fill: #ebdbb2;
+}
+.check-box .box {
+    -fx-background-color: #3c3836;
+    -fx-border-color: #665c54;
+}
+.check-box:selected .box {
+    -fx-background-color: #d79921;
+    -fx-border-color: #b57614;
+}
+
+/* === ListView === */
+.list-view {
+    -fx-background-color: #3c3836;
+}
+.list-view .list-cell {
+    -fx-text-fill: #ebdbb2;
+}
+.list-cell:filled:selected {
+    -fx-background-color: #665c54;
+}
+.list-cell:filled:hover {
+    -fx-background-color: #504945;
+}
+
+/* === ProgressBar === */
+.progress-bar {
+    -fx-accent: #d79921;
+    -fx-control-inner-background: #3c3836;
+}
+
+/* === ScrollBar === */
+.scroll-bar {
+    -fx-background-color: #282828;
+}
+.scroll-bar .thumb {
+    -fx-background-color: #665c54;
+}
+.scroll-bar .thumb:hover {
+    -fx-background-color: #928374;
+}
+
+/* === TableView === */
+.table-view {
+    -fx-background-color: #3c3836;
+    -fx-table-cell-border-color: transparent;
+    -fx-padding: 5;
+}
+.table-view .column-header {
+    -fx-background-color: #504945;
+}
+.table-view .column-header .label {
+    -fx-text-fill: #ebdbb2;
+    -fx-font-weight: bold;
+}
+.table-view .cell {
+    -fx-text-fill: #ebdbb2;
+    -fx-background-color: #3c3836;
+}
+.table-row-cell:filled:selected {
+    -fx-background-color: #665c54;
+}
+.table-row-cell:filled:hover {
+    -fx-background-color: #504945;
+}
+
+/* === DialogPane === */
+.dialog-pane {
+    -fx-background-color: #3c3836;
+    -fx-border-color: #665c54;
+    -fx-border-width: 2;
+}
+
+/* Dialog header */
+.dialog-pane .header-panel {
+    -fx-background-color: #504945;
+    -fx-padding: 10;
+}
+.dialog-pane .header-panel .label {
+    -fx-text-fill: #ebdbb2;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* Dialog content */
+.dialog-pane .content.label {
+    -fx-text-fill: #ebdbb2;
+    -fx-font-size: 14px;
+}
+
+/* Dialog buttons */
+.dialog-pane .button-bar .button {
+    -fx-background-color: #d79921;
+    -fx-text-fill: #282828;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6px;
+}
+.dialog-pane .button-bar .button:hover {
+    -fx-background-color: #fabd2f;
+}
+.dialog-pane .button-bar .button:pressed {
+    -fx-background-color: #b57614;
+}

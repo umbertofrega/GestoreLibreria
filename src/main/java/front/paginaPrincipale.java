@@ -1,6 +1,7 @@
 package front;
 
 import back.Facade;
+import back.Ordinamento;
 import back.Stato;
 import javafx.application.Application;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -16,6 +17,7 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import transfer.Libro;
 
+import javax.swing.*;
 import java.util.List;
 
 public class paginaPrincipale extends Application {
@@ -39,10 +41,13 @@ public class paginaPrincipale extends Application {
         final HBox bottoni = boxBottoni(stage);
         Label label = new Label("Gestore Libreria");
 
+
+        HBox ricerca = boxRicerca();
+
         final VBox vbox = new VBox();
         vbox.setSpacing(5);
         vbox.setPadding(new Insets(15, 0, 0, 10));
-        vbox.getChildren().addAll(label,bottoni, table);
+        vbox.getChildren().addAll(label,ricerca,bottoni, table);
         VBox.setVgrow(table, Priority.ALWAYS);
 
         root.getChildren().addAll(vbox);
@@ -50,6 +55,28 @@ public class paginaPrincipale extends Application {
         stage.setScene(scene);
 
         stage.show();
+    }
+
+    private HBox boxRicerca() {
+        ComboBox<Ordinamento> filtro = new ComboBox<>();
+        filtro.getItems().addAll(Ordinamento.values());
+        filtro.setValue(Ordinamento.TITOLO);
+
+        TextField barra = new TextField();
+        barra.setEditable(true);
+        barra.setOnAction(event -> {
+            KeyStroke.getKeyStroke("ENTER");
+            table.getItems().clear();
+            table.getItems().addAll(facade.cerca(filtro.getValue(), barra.getText()));
+        });
+
+        barra.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
+
+        HBox ricerca = new HBox();
+        ricerca.setSpacing(5);
+
+        ricerca.getChildren().addAll(barra, filtro);
+        return ricerca;
     }
 
     private void initTable() {

@@ -2,10 +2,7 @@ package front;
 
 import back.Stato;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import transfer.Libro;
 import transfer.LibroBuilder;
@@ -15,22 +12,27 @@ import java.util.ArrayList;
 public class FinestraAggiunta{
     public static Libro crea(){
         TextInputDialog textInputDialog = new TextInputDialog();
-        textInputDialog.setTitle("Dialog");
+        textInputDialog.setTitle(null);
+        DialogPane dialogPane = textInputDialog.getDialogPane();
+        dialogPane.getStylesheets().add(Thread.currentThread().getContextClassLoader().getResource("style.css").toExternalForm());
+
+        textInputDialog.setHeaderText("Aggiungi Libro");
+
 
         VBox root = new VBox(10);
         root.setPadding(new Insets(10));
 
         TextField campoTitolo = new TextField();
-        campoTitolo.setPromptText("Titolo");
+        campoTitolo.setPromptText("Titolo*");
 
         TextField campoAutore = new TextField();
-        campoAutore.setPromptText("Autore");
+        campoAutore.setPromptText("Autore*");
 
         TextField campoValutazione = new TextField();
-        campoValutazione.setPromptText("Valutazione (1-5)");
+        campoValutazione.setPromptText("Valutazione (1-10)");
 
         TextField campoISBN = new TextField();
-        campoISBN.setPromptText("ISBN (numero)");
+        campoISBN.setPromptText("ISBN (numero)*");
 
         TextField campoGeneri = new TextField();
         campoGeneri.setPromptText("Generi separati da virgola");
@@ -39,11 +41,12 @@ public class FinestraAggiunta{
         campoStato.getItems().addAll(Stato.values());
         campoStato.setValue(Stato.values()[0]);
 
-
-
         LibroBuilder libroBuilder = new LibroBuilder();
 
-        Button conferma = new Button("Conferma");
+        Button conferma = (Button) dialogPane.lookupButton(ButtonType.OK);
+
+        conferma.setText("Conferma");
+
         conferma.setOnAction(f -> {
             libroBuilder.isbn(Integer.parseInt(campoISBN.getText()))
                     .titolo(campoTitolo.getText())
@@ -54,7 +57,6 @@ public class FinestraAggiunta{
                 libroBuilder.valutazione(Integer.parseInt(campoValutazione.getText()));
             }
             libroBuilder.statoLettura(campoStato.getValue());
-            textInputDialog.close();
         });
         root.getChildren().addAll(campoISBN,campoTitolo,campoAutore,campoValutazione,campoGeneri,campoStato,conferma);
 
@@ -78,5 +80,4 @@ public class FinestraAggiunta{
         }
         return generi;
     }
-
 }
