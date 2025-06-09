@@ -16,4 +16,7 @@ public record Libro(
         this(lb.isbn,lb.titolo, lb.autore, lb.valutazione,lb.generi,lb.statoLettura);
     }
 
+    public String generiString(){
+        return String.join(", ", generi);
+    }
 }

@@ -106,7 +106,7 @@ public class paginaPrincipale extends Application {
         autore.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().autore()));
         valutazione.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().valutazione()));
         ISBN.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().isbn()));
-        generi.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().generi().toString()));
+        generi.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().generiString()));
         statoLettura.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().statoLettura().toString()));
 
 
@@ -151,8 +151,9 @@ public class paginaPrincipale extends Application {
         modificaLibro.setOnAction(e -> {
             Libro libroNew = FinestraAggiunta.crea();
             Libro libroOld = table.getSelectionModel().getSelectedItem();
-            //facade.aggiornaLibro(libroOld, libroNew);
-            System.out.println("Fatto");
+            facade.aggiornaLibro(libroOld, libroNew);
+            table.getItems().add(libroNew);
+            table.getItems().remove(libroOld);
         });
 
         final HBox bottoni = new HBox();
