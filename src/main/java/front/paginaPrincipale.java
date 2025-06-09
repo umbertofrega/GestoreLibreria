@@ -68,6 +68,13 @@ public class paginaPrincipale extends Application {
         TableColumn<Libro, List<String>> generi = new TableColumn("Generi");
         TableColumn<Libro, Stato> statoLettura = new TableColumn("Stato");
 
+        ISBN.setPrefWidth(table.getMaxWidth()/10);
+        titolo.setPrefWidth(table.getMaxWidth()/4);
+        autore.setPrefWidth(table.getMaxWidth()/5);
+        valutazione.setPrefWidth(table.getMaxWidth()/12);
+        generi.setPrefWidth(table.getMaxWidth()/4);
+        statoLettura.setPrefWidth(table.getMaxWidth()/9.2);
+
         titolo.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().titolo()));
         autore.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().autore()));
         valutazione.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().valutazione()));
@@ -85,20 +92,35 @@ public class paginaPrincipale extends Application {
 
         eliminaLibro.setOnAction(e -> {
             Libro libro = table.getSelectionModel().getSelectedItem();
+            if(libro != null) {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Conferma Eliminazione");
-            alert.setHeaderText("Guarda, una finestra");
+            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+            alert.setHeaderText("Confermi?");
             alert.setContentText("Sei sicuro di voler eliminare questo libro?");
             alert.showAndWait();
             if(alert.getResult() == ButtonType.OK) {
                 table.getItems().remove(table.getSelectionModel().getSelectedItem());
                 facade.rimuoviLibro(libro);
             }
+            } else {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+
+                alert.setContentText("Devi prima selezionare un libro!");
+                alert.show();
+            }
         });
 
         aggiungiLibro.setOnAction(e -> {
             Libro libro = FinestraAggiunta.crea();
-            System.out.println(libro);
+        });
+
+        modificaLibro.setOnAction(e -> {
+            Libro libroNew = FinestraAggiunta.crea();
+            Libro libroOld = table.getSelectionModel().getSelectedItem();
+            //facade.aggiornaLibro(libroOld, libroNew);
+            System.out.println("Fatto");
         });
 
         final HBox bottoni = new HBox();
