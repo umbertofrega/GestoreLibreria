@@ -2,7 +2,6 @@ package front;
 
 import back.Facade;
 import back.Ordinamento;
-import back.Stato;
 import javafx.application.Application;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
@@ -18,7 +17,6 @@ import javafx.stage.Stage;
 import transfer.Libro;
 
 import javax.swing.*;
-import java.util.List;
 
 public class paginaPrincipale extends Application {
     private TableView<Libro> table = new TableView();
@@ -92,8 +90,8 @@ public class paginaPrincipale extends Application {
         TableColumn<Libro,String> titolo = new TableColumn("Titolo");
         TableColumn<Libro,String> autore = new TableColumn("Autore");
         TableColumn<Libro,Integer> valutazione = new TableColumn("Valutazione");
-        TableColumn<Libro, List<String>> generi = new TableColumn("Generi");
-        TableColumn<Libro, Stato> statoLettura = new TableColumn("Stato");
+        TableColumn<Libro, String> generi = new TableColumn("Generi");
+        TableColumn<Libro, String> statoLettura = new TableColumn("Stato");
 
         ISBN.setPrefWidth(table.getMaxWidth()/10);
         titolo.setPrefWidth(table.getMaxWidth()/4);
@@ -102,14 +100,19 @@ public class paginaPrincipale extends Application {
         generi.setPrefWidth(table.getMaxWidth()/4);
         statoLettura.setPrefWidth(table.getMaxWidth()/9.2);
 
+
+
         titolo.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().titolo()));
         autore.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().autore()));
         valutazione.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().valutazione()));
         ISBN.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().isbn()));
-        generi.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().generi()));
-        statoLettura.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().statoLettura()));
+        generi.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().generi().toString()));
+        statoLettura.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().statoLettura().toString()));
+
 
         table.getColumns().addAll(ISBN, titolo, autore, valutazione, generi, statoLettura);
+
+
     }
 
     private HBox boxBottoni(Stage stage) {
@@ -141,6 +144,8 @@ public class paginaPrincipale extends Application {
 
         aggiungiLibro.setOnAction(e -> {
             Libro libro = FinestraAggiunta.crea();
+            facade.inserisciLibro(libro);
+            table.getItems().add(libro);
         });
 
         modificaLibro.setOnAction(e -> {
