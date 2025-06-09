@@ -78,8 +78,10 @@ class GestoreRicerche {
         List<Libro> libri = getLibri();
         List<Libro> risultato = new ArrayList<>();
 
+        ricerca = ".*"+ricerca.toLowerCase().strip()+".*";
+
         for (Libro l : libri) {
-            if(l.autore().equals(ricerca)){
+            if(l.autore().toLowerCase().matches(ricerca)){
                 risultato.add(l);
             }
         }
@@ -96,11 +98,14 @@ class GestoreRicerche {
         List<Libro> libri = getLibri();
         List<Libro> risultato = new ArrayList<>();
 
+        ricerca = ".*"+ricerca.toLowerCase().strip()+".*";
+
         for (Libro l : libri) {
-            if(l.titolo().equals(ricerca)){
+            if(l.titolo().toLowerCase().matches(ricerca)){
                 risultato.add(l);
             }
         }
+
         return risultato;
     }
 
