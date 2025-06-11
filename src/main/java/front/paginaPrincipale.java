@@ -2,6 +2,7 @@ package front;
 
 import back.Facade;
 import back.Ordinamento;
+import front.dialogFactory.DialogAggiunta;
 import javafx.application.Application;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
@@ -17,6 +18,7 @@ import javafx.stage.Stage;
 import transfer.Libro;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class paginaPrincipale extends Application {
     private TableView<Libro> table = new TableView();
@@ -44,7 +46,7 @@ public class paginaPrincipale extends Application {
 
         final VBox vbox = new VBox();
         vbox.setSpacing(5);
-        vbox.setPadding(new Insets(15, 0, 0, 10));
+        vbox.setPadding(new Insets(15, 15, 10, 10));
         vbox.getChildren().addAll(label,ricerca,bottoni, table);
         VBox.setVgrow(table, Priority.ALWAYS);
 
@@ -59,6 +61,8 @@ public class paginaPrincipale extends Application {
         ComboBox<Ordinamento> filtro = new ComboBox<>();
         filtro.getItems().addAll(Ordinamento.values());
         filtro.setValue(Ordinamento.TITOLO);
+        filtro.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth()/15);
+
 
         TextField barra = new TextField();
         barra.setEditable(true);
@@ -68,7 +72,7 @@ public class paginaPrincipale extends Application {
             table.getItems().addAll(facade.cerca(filtro.getValue(), barra.getText()));
         });
 
-        barra.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth());
+        barra.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth()-(filtro.getPrefWidth()));
 
         HBox ricerca = new HBox();
         ricerca.setSpacing(5);
@@ -78,19 +82,21 @@ public class paginaPrincipale extends Application {
     }
 
     private void initTable() {
-
         table.setMaxWidth(Screen.getPrimary().getVisualBounds().getWidth());
         table.setMaxHeight(Screen.getPrimary().getVisualBounds().getHeight());
+
+        table.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight());
+        table.setMaxWidth(Screen.getPrimary().getVisualBounds().getWidth());
 
         table.setMinWidth(Screen.getPrimary().getVisualBounds().getWidth()/2);
         table.setMinHeight(Screen.getPrimary().getVisualBounds().getHeight()/2);
 
 
-        TableColumn<Libro,Integer> ISBN = new TableColumn("ISBN");
-        TableColumn<Libro,String> titolo = new TableColumn("Titolo");
-        TableColumn<Libro,String> autore = new TableColumn("Autore");
+        TableColumn<Libro,Long> ISBN = new TableColumn("ISBN*");
+        TableColumn<Libro,String> titolo = new TableColumn("Titolo*");
+        TableColumn<Libro,String> autore = new TableColumn("Autore*");
         TableColumn<Libro,Integer> valutazione = new TableColumn("Valutazione");
-        TableColumn<Libro, String> generi = new TableColumn("Generi");
+        TableColumn<Libro, String> generi = new TableColumn("Generi*");
         TableColumn<Libro, String> statoLettura = new TableColumn("Stato");
 
         ISBN.setPrefWidth(table.getMaxWidth()/10);
@@ -98,7 +104,7 @@ public class paginaPrincipale extends Application {
         autore.setPrefWidth(table.getMaxWidth()/5);
         valutazione.setPrefWidth(table.getMaxWidth()/12);
         generi.setPrefWidth(table.getMaxWidth()/4);
-        statoLettura.setPrefWidth(table.getMaxWidth()/9.2);
+        statoLettura.setPrefWidth(table.getMaxWidth()/10.5);
 
 
 
@@ -111,8 +117,6 @@ public class paginaPrincipale extends Application {
 
 
         table.getColumns().addAll(ISBN, titolo, autore, valutazione, generi, statoLettura);
-
-
     }
 
     private HBox boxBottoni(Stage stage) {
@@ -143,17 +147,33 @@ public class paginaPrincipale extends Application {
         });
 
         aggiungiLibro.setOnAction(e -> {
-            Libro libro = FinestraAggiunta.crea();
-            facade.inserisciLibro(libro);
-            table.getItems().add(libro);
+            Dialog<Libro> dialog = new DialogAggiunta().creaDialog();
+            dialog.showAndWait();
+            Libro aggiunta = dialog.getResult();
+
+            boolean esiste = false;
+
+            if(aggiunta != null) {
+                ArrayList<Libro> libri = (ArrayList<Libro>) facade.getLibri();
+                for(Libro l : libri){
+                    if(l.isbn()==aggiunta.isbn()) {
+                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                        alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+                        alert.setHeaderText("Ehi!");
+                        alert.setContentText("Un libro con questo codice ISBN è già esistente...");
+                        alert.showAndWait();
+                        esiste = true;
+                        break;
+                    }
+                } if (!esiste){
+                    table.getItems().add(aggiunta);
+                    facade.inserisciLibro(aggiunta);
+                }
+            }
         });
 
         modificaLibro.setOnAction(e -> {
-            Libro libroNew = FinestraAggiunta.crea();
-            Libro libroOld = table.getSelectionModel().getSelectedItem();
-            facade.aggiornaLibro(libroOld, libroNew);
-            table.getItems().add(libroNew);
-            table.getItems().remove(libroOld);
+
         });
 
         final HBox bottoni = new HBox();
@@ -167,5 +187,4 @@ public class paginaPrincipale extends Application {
     public static void main(String[] args) {
         launch();
     }
-
 }
