@@ -1,7 +1,8 @@
 package front.dialogFactory;
 
-import front.fields.AbstractField;
-import front.fields.LibroField;
+
+import front.fields.InterfacciaFields;
+import front.fields.LibroFields;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import transfer.Libro;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 
 public class DialogAggiunta implements DialogFactory{
     Dialog<Libro> dialog = new Dialog<>();
-    LibroField fields = (LibroField) creaFields();
+    LibroFields fields = (LibroFields) creaFields();
 
     public Dialog<Libro> creaDialog(){
         dialog.setHeaderText("Aggiungi Libro");
@@ -31,8 +32,8 @@ public class DialogAggiunta implements DialogFactory{
     }
 
     @Override
-    public AbstractField creaFields() {
-        return new LibroField();
+    public InterfacciaFields creaFields() {
+        return new LibroFields();
     }
 
     @Override
