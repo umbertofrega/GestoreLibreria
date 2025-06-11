@@ -11,50 +11,46 @@ import java.util.ArrayList;
 
 public class DialogAggiunta implements DialogFactory{
     Dialog<Libro> dialog = new Dialog<>();
-    LibroField fields = (LibroField) aggiungiFields();
-
-    public static void main(String[] args) {
-        Dialog<Libro> dialog = new Dialog<>();
-        dialog.showAndWait();
-        System.out.println(dialog.getResult());
-    }
+    LibroField fields = (LibroField) creaFields();
 
     public Dialog<Libro> creaDialog(){
-
         dialog.setHeaderText("Aggiungi Libro");
         dialog.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
 
         aggiungiRisultato();
 
+        ButtonType okButton = new ButtonType("Crea", ButtonBar.ButtonData.OK_DONE);
+        dialog.getDialogPane().getButtonTypes().addAll(okButton, ButtonType.CANCEL);
+
         VBox vbox = new VBox();
         vbox.setSpacing(10);
-
-        Button conferma = new Button("Conferma");
-        vbox.getChildren().addAll(fields.campoISBN,fields.campoTitolo,fields.campoAutore,fields.campoValutazione,fields.campoGeneri,fields.campoStato,conferma);
+        vbox.getChildren().addAll(fields.campoISBN,fields.campoTitolo,fields.campoAutore,fields.campoValutazione,fields.campoGeneri,fields.campoStato);
 
         dialog.getDialogPane().setContent(vbox);
-        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
         return dialog;
     }
 
     @Override
-    public AbstractField aggiungiFields() {
+    public AbstractField creaFields() {
         return new LibroField();
     }
 
+    @Override
     public void aggiungiRisultato(){
         LibroBuilder libroBuilder = new LibroBuilder();
         dialog.setResultConverter(f -> {
-            if(!valuta(fields.campoISBN) || !valuta(fields.campoTitolo) || !valuta(fields.campoAutore)){
+            if(!f.getButtonData().equals(ButtonBar.ButtonData.OK_DONE))
+                return null;
+            if(!valutaISBN(fields.campoISBN) || !valuta(fields.campoTitolo) || !valuta(fields.campoAutore) || !valuta(fields.campoGeneri)){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.getDialogPane().getStylesheets().add(Thread.currentThread().getContextClassLoader().getResource("/style.css").toExternalForm());
+                alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
                 alert.setTitle("Attenzione!");
                 alert.setHeaderText("Attenzione!");
-                alert.setContentText("Devi compilare i campi obbligatori! (Quelli con *)");
+                alert.setContentText("Compila bene i campi!");
                 alert.showAndWait();
             }
             else {
-                libroBuilder.isbn(Integer.parseInt(fields.campoISBN.getText()))
+                libroBuilder.isbn(Long.parseLong(fields.campoISBN.getText()))
                         .titolo(fields.campoTitolo.getText())
                         .autore(fields.campoAutore.getText())
                         .generi(traduci(fields.campoGeneri)).build();
@@ -87,6 +83,16 @@ public class DialogAggiunta implements DialogFactory{
     private static boolean valuta(TextField campo){
         String testo = campo.getText();
         if (testo == null || testo.isBlank()) return false;
+        return true;
+    }
+
+    private static boolean valutaISBN(TextField campo){
+        String testo = campo.getText();
+        if (testo == null || testo.isBlank()) return false;
+        if(testo.matches(".*[a-zA-Z].*")) return false;
+        if(testo.contains(" ") || testo.contains(",") || testo.contains(".")) return false;
+        if(testo.length()!=13) return false;
+
         return true;
     }
 }

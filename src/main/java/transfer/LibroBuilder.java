@@ -5,7 +5,7 @@ import back.Stato;
 import java.util.List;
 
 public class LibroBuilder {
-    int isbn;
+    long isbn;
     String titolo;
     String autore;
     List<String> generi;
@@ -27,7 +27,7 @@ public class LibroBuilder {
         return this;
     }
 
-    public LibroBuilder isbn(int isbn) {
+    public LibroBuilder isbn(long isbn) {
         this.isbn = isbn;
         return this;
     }

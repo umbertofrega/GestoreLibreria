@@ -8,7 +8,8 @@ public interface DialogFactory {
 
     public Dialog<?> creaDialog();
 
-    public AbstractField aggiungiFields();
+    public AbstractField creaFields();
 
+    public void aggiungiRisultato();
 
 }

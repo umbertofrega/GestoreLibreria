@@ -5,7 +5,7 @@ import back.Stato;
 import java.util.List;
 
 public record Libro(
-        int isbn,
+        long isbn,
         String titolo,
         String autore,
         int valutazione,
