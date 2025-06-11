@@ -70,7 +70,7 @@ public class DialogAggiunta implements DialogFactory{
         String testo = campo.getText();
         if (testo == null || testo.isBlank()) return generi;
 
-        String[] tokens = testo.split("[,\\s]+");
+        String[] tokens = testo.split("[,]+");
 
         for (String token : tokens) {
             if (!token.isBlank()) {
