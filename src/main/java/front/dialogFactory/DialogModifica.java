@@ -1,26 +1,33 @@
 package front.dialogFactory;
 
-
 import front.fields.InterfacciaFields;
 import front.fields.LibroFields;
-import javafx.scene.control.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.layout.VBox;
 import transfer.Libro;
 import transfer.LibroBuilder;
 
-import java.util.ArrayList;
+import static front.dialogFactory.DialogAggiunta.*;
 
-public class DialogAggiunta implements DialogFactory{
+public class DialogModifica implements DialogFactory{
     Dialog<Libro> dialog = new Dialog<>();
-    LibroFields fields = (LibroFields) creaFields();
+    private Libro libro;
+    private LibroFields fields;
+
+    public DialogModifica(Libro libro) {
+        this.libro = libro;
+    }
 
     public Dialog<Libro> creaDialog(){
-        dialog.setHeaderText("Aggiungi Libro");
+        dialog.setHeaderText("Modifica Libro");
         dialog.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
 
         aggiungiRisultato();
-
-        ButtonType okButton = new ButtonType("Crea", ButtonBar.ButtonData.OK_DONE);
+        this.fields = (LibroFields) creaFields();
+        ButtonType okButton = new ButtonType("Salva", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(okButton, ButtonType.CANCEL);
 
         VBox vbox = new VBox();
@@ -33,11 +40,18 @@ public class DialogAggiunta implements DialogFactory{
 
     @Override
     public InterfacciaFields creaFields() {
-        return new LibroFields();
+        fields = new LibroFields();
+        fields.campoISBN.setText(String.valueOf(libro.isbn()));
+        fields.campoTitolo.setText(libro.titolo());
+        fields.campoAutore.setText(libro.autore());
+        fields.campoValutazione.setText(String.valueOf(libro.valutazione())); // o lascia vuoto se usi stelle
+        fields.campoGeneri.setText(libro.generiString());
+        fields.campoStato.setValue(libro.statoLettura());
+        return fields;
     }
 
     @Override
-    public void aggiungiRisultato(){
+    public void aggiungiRisultato() {
         LibroBuilder libroBuilder = new LibroBuilder();
         dialog.setResultConverter(f -> {
             if(!f.getButtonData().equals(ButtonBar.ButtonData.OK_DONE))
@@ -64,35 +78,5 @@ public class DialogAggiunta implements DialogFactory{
             }
             return null;
         });
-    }
-
-    static ArrayList<String> traduci(TextField campo){
-        ArrayList<String> generi = new ArrayList<>();
-        String testo = campo.getText();
-        if (testo == null || testo.isBlank()) return generi;
-
-        String[] tokens = testo.split("[,]+");
-
-        for (String token : tokens) {
-            if (!token.isBlank()) {
-                generi.add(token.trim());
-            }
-        }
-        return generi;
-    }
-
-     static boolean verifica(TextField campo){
-        String testo = campo.getText();
-        if (testo == null || testo.isBlank()) return false;
-        return true;
-    }
-
-      static boolean valutaISBN(TextField campo){
-        String testo = campo.getText();
-        if (testo == null || testo.isBlank()) return false;
-        if(testo.matches(".*[a-zA-Z].*")) return false;
-        if(testo.contains(" ") || testo.contains(",") || testo.contains(".")) return false;
-        if(testo.length()!=13) return false;
-        return true;
     }
 }

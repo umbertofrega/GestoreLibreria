@@ -3,6 +3,7 @@ package front;
 import back.Facade;
 import back.Ordinamento;
 import front.dialogFactory.DialogAggiunta;
+import front.dialogFactory.DialogModifica;
 import javafx.application.Application;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
@@ -18,11 +19,14 @@ import javafx.stage.Stage;
 import transfer.Libro;
 
 import javax.swing.*;
-import java.util.ArrayList;
 
-public class paginaPrincipale extends Application {
-    private TableView<Libro> table = new TableView();
+public class PaginaPrincipale extends Application {
     private final Facade facade = new Facade();
+    private final TableView<Libro> table = new TableView();
+
+    public static void main(String[] args) {
+        launch();
+    }
 
     @Override
     public void start(Stage stage) {
@@ -47,7 +51,7 @@ public class paginaPrincipale extends Application {
         final VBox vbox = new VBox();
         vbox.setSpacing(5);
         vbox.setPadding(new Insets(15, 15, 10, 10));
-        vbox.getChildren().addAll(label,ricerca,bottoni, table);
+        vbox.getChildren().addAll(label, ricerca, bottoni, table);
         VBox.setVgrow(table, Priority.ALWAYS);
 
         root.getChildren().addAll(vbox);
@@ -61,7 +65,7 @@ public class paginaPrincipale extends Application {
         ComboBox<Ordinamento> filtro = new ComboBox<>();
         filtro.getItems().addAll(Ordinamento.values());
         filtro.setValue(Ordinamento.TITOLO);
-        filtro.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth()/15);
+        filtro.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth() / 15);
 
 
         TextField barra = new TextField();
@@ -72,7 +76,7 @@ public class paginaPrincipale extends Application {
             table.getItems().addAll(facade.cerca(filtro.getValue(), barra.getText()));
         });
 
-        barra.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth()-(filtro.getPrefWidth()));
+        barra.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth() - (filtro.getPrefWidth()));
 
         HBox ricerca = new HBox();
         ricerca.setSpacing(5);
@@ -88,25 +92,23 @@ public class paginaPrincipale extends Application {
         table.setPrefHeight(Screen.getPrimary().getVisualBounds().getHeight());
         table.setMaxWidth(Screen.getPrimary().getVisualBounds().getWidth());
 
-        table.setMinWidth(Screen.getPrimary().getVisualBounds().getWidth()/2);
-        table.setMinHeight(Screen.getPrimary().getVisualBounds().getHeight()/2);
+        table.setMinWidth(Screen.getPrimary().getVisualBounds().getWidth() / 2);
+        table.setMinHeight(Screen.getPrimary().getVisualBounds().getHeight() / 2);
 
 
-        TableColumn<Libro,Long> ISBN = new TableColumn("ISBN*");
-        TableColumn<Libro,String> titolo = new TableColumn("Titolo*");
-        TableColumn<Libro,String> autore = new TableColumn("Autore*");
-        TableColumn<Libro,Integer> valutazione = new TableColumn("Valutazione");
+        TableColumn<Libro, Long> ISBN = new TableColumn("ISBN*");
+        TableColumn<Libro, String> titolo = new TableColumn("Titolo*");
+        TableColumn<Libro, String> autore = new TableColumn("Autore*");
+        TableColumn<Libro, Integer> valutazione = new TableColumn("Valutazione");
         TableColumn<Libro, String> generi = new TableColumn("Generi*");
         TableColumn<Libro, String> statoLettura = new TableColumn("Stato");
 
-        ISBN.setPrefWidth(table.getMaxWidth()/10);
-        titolo.setPrefWidth(table.getMaxWidth()/4);
-        autore.setPrefWidth(table.getMaxWidth()/5);
-        valutazione.setPrefWidth(table.getMaxWidth()/12);
-        generi.setPrefWidth(table.getMaxWidth()/4);
-        statoLettura.setPrefWidth(table.getMaxWidth()/10.5);
-
-
+        ISBN.setPrefWidth(table.getMaxWidth() / 10);
+        titolo.setPrefWidth(table.getMaxWidth() / 4);
+        autore.setPrefWidth(table.getMaxWidth() / 5);
+        valutazione.setPrefWidth(table.getMaxWidth() / 12);
+        generi.setPrefWidth(table.getMaxWidth() / 4);
+        statoLettura.setPrefWidth(table.getMaxWidth() / 10.5);
 
         titolo.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().titolo()));
         autore.setCellValueFactory(cellData -> new ReadOnlyStringWrapper(cellData.getValue().autore()));
@@ -126,17 +128,17 @@ public class paginaPrincipale extends Application {
 
         eliminaLibro.setOnAction(e -> {
             Libro libro = table.getSelectionModel().getSelectedItem();
-            if(libro != null) {
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Conferma Eliminazione");
-            alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
-            alert.setHeaderText("Confermi?");
-            alert.setContentText("Sei sicuro di voler eliminare questo libro?");
-            alert.showAndWait();
-            if(alert.getResult() == ButtonType.OK) {
-                table.getItems().remove(table.getSelectionModel().getSelectedItem());
-                facade.rimuoviLibro(libro);
-            }
+            if (libro != null) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("Conferma Eliminazione");
+                alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+                alert.setHeaderText("Confermi?");
+                alert.setContentText("Sei sicuro di voler eliminare questo libro?");
+                alert.showAndWait();
+                if (alert.getResult() == ButtonType.OK) {
+                    table.getItems().remove(table.getSelectionModel().getSelectedItem());
+                    facade.rimuoviLibro(libro);
+                }
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
@@ -150,30 +152,31 @@ public class paginaPrincipale extends Application {
             Dialog<Libro> dialog = new DialogAggiunta().creaDialog();
             dialog.showAndWait();
             Libro aggiunta = dialog.getResult();
-
-            boolean esiste = false;
-
-            if(aggiunta != null) {
-                ArrayList<Libro> libri = (ArrayList<Libro>) facade.getLibri();
-                for(Libro l : libri){
-                    if(l.isbn()==aggiunta.isbn()) {
-                        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                        alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
-                        alert.setHeaderText("Ehi!");
-                        alert.setContentText("Un libro con questo codice ISBN è già esistente...");
-                        alert.showAndWait();
-                        esiste = true;
-                        break;
-                    }
-                } if (!esiste){
-                    table.getItems().add(aggiunta);
-                    facade.inserisciLibro(aggiunta);
-                }
+            if(esiste(aggiunta)){
+                table.getItems().add(aggiunta);
+                facade.inserisciLibro(aggiunta);
             }
         });
 
         modificaLibro.setOnAction(e -> {
-
+            Libro libroOld = table.getSelectionModel().getSelectedItem();
+            if (libroOld == null) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+                alert.setContentText("Devi prima selezionare un libro!");
+                alert.show();
+            } else {
+                Dialog<Libro> dialog = new DialogModifica(libroOld).creaDialog();
+                dialog.showAndWait();
+                Libro libroNew = dialog.getResult();
+                table.getItems().remove(libroOld);
+                if (esiste(libroNew)) {
+                    table.getItems().add(libroOld);
+                } else {
+                    table.getItems().add(libroNew);
+                    facade.aggiornaLibro(libroOld, libroNew);
+                }
+            }
         });
 
         final HBox bottoni = new HBox();
@@ -184,7 +187,19 @@ public class paginaPrincipale extends Application {
         return bottoni;
     }
 
-    public static void main(String[] args) {
-        launch();
+    private boolean esiste(Libro aggiunta) {
+        if (aggiunta != null) {
+            for (Libro l : table.getItems()) {
+                if (l.isbn() == aggiunta.isbn()) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+                    alert.setHeaderText("Ehi!");
+                    alert.setContentText("Un libro con questo codice ISBN è già esistente...");
+                    alert.showAndWait();
+                    return true;
+                }
+            }
+        }
+            return false;
     }
 }
