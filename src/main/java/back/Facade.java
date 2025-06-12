@@ -1,5 +1,9 @@
 package back;
 
+import back.gestori.GestoreLibri;
+import back.gestori.GestoreRicerche;
+import back.stati.Ordinamento;
+import back.stati.Stato;
 import transfer.Libro;
 
 import java.util.List;
@@ -8,6 +12,12 @@ public class Facade {
     private static GestoreRicerche gestoreRicerche;
     private static GestoreLibri gestoreLibri;
 
+
+    /**
+     * Permette di ricevere la lista dei libri non ordinata
+     *
+     * @return Una lista di libri
+     */
     public List<Libro> getLibri(){
         gestoreRicerche = GestoreRicerche.getInstance();
         return gestoreRicerche.getLibri();
@@ -23,7 +33,7 @@ public class Facade {
         return gestoreRicerche.filtraGeneri(generi);
     }
 
-    public List<Libro> cerca(Ordinamento tipo,String ricerca){
+    public List<Libro> cerca(Ordinamento tipo, String ricerca){
         gestoreRicerche = GestoreRicerche.getInstance();
         if(tipo.equals(Ordinamento.AUTORE)){
             return gestoreRicerche.cercaPerAutore(ricerca);

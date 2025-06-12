@@ -1,6 +1,6 @@
 package transfer;
 
-import back.Stato;
+import back.stati.Stato;
 
 import java.util.List;
 

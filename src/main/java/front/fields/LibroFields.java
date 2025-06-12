@@ -1,6 +1,6 @@
 package front.fields;
 
-import back.Stato;
+import back.stati.Stato;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 

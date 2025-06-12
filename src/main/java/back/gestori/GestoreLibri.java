@@ -1,6 +1,5 @@
-package back;
+package back.gestori;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import transfer.Libro;
 
@@ -10,11 +9,13 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import static back.gestori.GestoreRicerche.getLibri;
+
 /**
  *  Una classe Singleton che gestisce il
  *  salvataggio in memoria secondaria dei libri.
  */
-class GestoreLibri {
+public class GestoreLibri {
 
     private static final ObjectMapper mapper = new ObjectMapper();
     private static final File documento = new File(Path.of("src", "main", "resources", "data", "libri.json").toUri());
@@ -27,7 +28,7 @@ class GestoreLibri {
      * @param libro Un'oggetto di tipo libro
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
-    boolean inserisciLibro(Libro libro) {
+    public boolean inserisciLibro(Libro libro) {
         Collection<Libro> libri = getLibri();
         libri.add(libro);
         return scrivi(libri);
@@ -39,7 +40,7 @@ class GestoreLibri {
      * @param libri Una lista di libro
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
-    boolean inserisciLibro(Collection<Libro> libri) {
+    public boolean inserisciLibro(Collection<Libro> libri) {
         return scrivi(libri);
     }
 
@@ -49,7 +50,7 @@ class GestoreLibri {
      * @param libro Un'oggetto di tipo libro
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
-    boolean rimuoviLibro(Libro libro) {
+    public boolean rimuoviLibro(Libro libro) {
         Collection<Libro> libri = getLibri();
         libri.remove(libro);
         return scrivi(libri);
@@ -62,7 +63,7 @@ class GestoreLibri {
      * @param libroNew il nuovo stato del libro
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
-    boolean aggiornaLibro(Libro libroOld, Libro libroNew) {
+    public boolean aggiornaLibro(Libro libroOld, Libro libroNew) {
         ArrayList<Libro> libri = (ArrayList<Libro>) getLibri();
         libri.remove(libroOld);
         libri.add(libroNew);
@@ -83,7 +84,7 @@ class GestoreLibri {
      *
      * @return L'istanza di GestoreLibri
      */
-    static synchronized GestoreLibri getInstance() {
+    public static synchronized GestoreLibri getInstance() {
         if (instance == null) {
             return new GestoreLibri();
         }
@@ -96,17 +97,4 @@ class GestoreLibri {
      */
     private GestoreLibri() {}
 
-    /*
-     * Riporto il metodo getLibri() di GestoreFiltri qui per diminuire la coesione tra le
-     * classi differenti.
-     */
-    private static Collection<Libro> getLibri(){
-        Collection<Libro> libri;
-        try {
-            libri = mapper.readValue(documento,new TypeReference<>(){});
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return libri;
-    }
 }

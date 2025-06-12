@@ -1,7 +1,7 @@
 package front;
 
 import back.Facade;
-import back.Ordinamento;
+import back.stati.Ordinamento;
 import front.dialogFactory.DialogAggiunta;
 import front.dialogFactory.DialogModifica;
 import javafx.application.Application;

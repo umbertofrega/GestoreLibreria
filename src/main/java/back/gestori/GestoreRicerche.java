@@ -1,5 +1,6 @@
-package back;
+package back.gestori;
 
+import back.stati.Stato;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import transfer.Libro;
@@ -10,7 +11,7 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-class GestoreRicerche {
+public class GestoreRicerche {
 
     private static final ObjectMapper mapper = new ObjectMapper();
     private static final File documento = new File(Path.of("src","main","resources","data","libri.json").toUri());
@@ -28,7 +29,7 @@ class GestoreRicerche {
      *
      * @return Una lista di libri
      */
-    List<Libro> getLibri(){
+    public static List<Libro> getLibri(){
         List<Libro> libri;
 
         try {
@@ -45,7 +46,7 @@ class GestoreRicerche {
      * @param genere La lista dei generi che vogliono essere visualizzati
      * @return la lista filtrata
      */
-    List<Libro> filtraGeneri(List<String> genere){
+    public List<Libro> filtraGeneri(List<String> genere){
         List<Libro> libri = getLibri();
 
         libri.removeIf(l -> !l.generi().contains(genere));
@@ -59,7 +60,7 @@ class GestoreRicerche {
      * @param stato Lo stato lettura che vuole essere visualizzato
      * @return la lista filtrata
      */
-    List<Libro> filtraStato(Stato stato){
+    public List<Libro> filtraStato(Stato stato){
         List<Libro> libri = getLibri();
 
         libri.removeIf(l -> !l.statoLettura().equals(stato));
@@ -74,7 +75,7 @@ class GestoreRicerche {
      * @param ricerca la stringa contenente il nome dell'autore
      * @return la lista dei libri che hanno l'autore richiesto
      */
-    List<Libro> cercaPerAutore(String ricerca){
+    public List<Libro> cercaPerAutore(String ricerca){
         List<Libro> libri = getLibri();
         List<Libro> risultato = new ArrayList<>();
 
@@ -94,7 +95,7 @@ class GestoreRicerche {
      * @param ricerca la stringa contenente il nome dell'autore
      * @return la lista dei libri che hanno l'autore richiesto
      */
-    List<Libro> cercaPerTitolo(String ricerca){
+    public List<Libro> cercaPerTitolo(String ricerca){
         List<Libro> libri = getLibri();
         List<Libro> risultato = new ArrayList<>();
 
@@ -115,7 +116,7 @@ class GestoreRicerche {
      *
      * @return L'istanza di GestoreFiltri
      */
-    static GestoreRicerche getInstance() {
+    public static GestoreRicerche getInstance() {
         if(instance == null){
             return new GestoreRicerche();
         }
