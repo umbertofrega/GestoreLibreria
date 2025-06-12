@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b77f71e-82c9-464a-8a3f-c8585b859f95" name="Changes" comment="migliorato la gui">
-      <change afterPath="$PROJECT_DIR$/src/main/java/front/FinestraAggiunta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/style.css" afterDir="false" />
+    <list default="true" id="6b77f71e-82c9-464a-8a3f-c8585b859f95" name="Changes" comment="cambiati i libri esempio">
+      <change afterPath="$PROJECT_DIR$/src/main/java/front/dialogFactory/DialogModifica.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/prova.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/back/Stato.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/Stato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/front/dialogFactory/DialogAggiunta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/dialogFactory/DialogAggiunta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/front/fields/AbstractField.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/front/paginaPrincipale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/paginaPrincipale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/transfer/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/transfer/Libro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/autori.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/generi.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/data/libri.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data/libri.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
@@ -69,42 +68,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloFX.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.prova.executor": "Run",
-    "Application.prove.executor": "Run",
-    "Maven.gestore-libri [clean,javafx:run].executor": "Run",
-    "Maven.gestore-libri [mvn,clean,javafx:run].executor": "Run",
-    "Maven.gestore-libri [mvn,javafx:run].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "325",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/umberto/Documents/uni/anno_2/ing_del_software/Progetto/GestoreLibreria",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "editor.preferences.completion",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.FinestraAggiunta.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GestoreRicerche.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloFX.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.paginaPrincipale.executor&quot;: &quot;Run&quot;,
+    &quot;Application.prova.executor&quot;: &quot;Run&quot;,
+    &quot;Application.prove.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gestore-libri [clean,javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gestore-libri [mvn,clean,javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gestore-libri [mvn,javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;325&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "CSS"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;CSS&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/front/Fields" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/data" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="front.dialogFactory" />
       <recent name="" />
     </key>
   </component>
@@ -187,7 +191,19 @@
       <workItem from="1749124950785" duration="3830000" />
       <workItem from="1749203296725" duration="299000" />
       <workItem from="1749204073530" duration="4501000" />
-      <workItem from="1749375685653" duration="10458000" />
+      <workItem from="1749375685653" duration="11936000" />
+      <workItem from="1749388436480" duration="169000" />
+      <workItem from="1749394815215" duration="299000" />
+      <workItem from="1749459878067" duration="1223000" />
+      <workItem from="1749461114776" duration="4911000" />
+      <workItem from="1749632900536" duration="1480000" />
+      <workItem from="1749634640706" duration="851000" />
+      <workItem from="1749635504331" duration="99000" />
+      <workItem from="1749635655902" duration="910000" />
+      <workItem from="1749636990995" duration="4424000" />
+      <workItem from="1749641999817" duration="4010000" />
+      <workItem from="1749759353255" duration="1784000" />
+      <workItem from="1749761152505" duration="1678000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit 2">
       <option name="closed" value="true" />
@@ -357,7 +373,127 @@
       <option name="project" value="LOCAL" />
       <updated>1749377252658</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="aggiunto funzioni di aggiunta e rimozione libri">
+      <option name="closed" value="true" />
+      <created>1749387256213</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1749387256213</updated>
+    </task>
+    <task id="LOCAL-00023" summary="rimosso file inutili">
+      <option name="closed" value="true" />
+      <created>1749387309295</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1749387309295</updated>
+    </task>
+    <task id="LOCAL-00024" summary="perfezionato la rimozione dei libri">
+      <option name="closed" value="true" />
+      <created>1749462706889</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1749462706889</updated>
+    </task>
+    <task id="LOCAL-00025" summary="aggiunto barra di ricerca">
+      <option name="closed" value="true" />
+      <created>1749464725847</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1749464725847</updated>
+    </task>
+    <task id="LOCAL-00026" summary="perfezionato algoritmo di ricerca">
+      <option name="closed" value="true" />
+      <created>1749464747044</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1749464747044</updated>
+    </task>
+    <task id="LOCAL-00027" summary="formattato output in tabella dello Stato">
+      <option name="closed" value="true" />
+      <created>1749465544510</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1749465544510</updated>
+    </task>
+    <task id="LOCAL-00028" summary="formattato anche la lista dei generi">
+      <option name="closed" value="true" />
+      <created>1749465982000</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1749465982000</updated>
+    </task>
+    <task id="LOCAL-00029" summary="creato un transfer dei field">
+      <option name="closed" value="true" />
+      <created>1749639726314</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1749639726314</updated>
+    </task>
+    <task id="LOCAL-00030" summary="creato abstract factory dei dialog">
+      <option name="closed" value="true" />
+      <created>1749639750580</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1749639750580</updated>
+    </task>
+    <task id="LOCAL-00031" summary="creato abstract factory dei dialog">
+      <option name="closed" value="true" />
+      <created>1749639757106</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1749639757106</updated>
+    </task>
+    <task id="LOCAL-00032" summary="reso ISBN long">
+      <option name="closed" value="true" />
+      <created>1749643751521</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1749643751522</updated>
+    </task>
+    <task id="LOCAL-00033" summary="reso ISBN long e aggiunto l'azione di inserimento libri definitivamente">
+      <option name="closed" value="true" />
+      <created>1749644891237</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1749644891237</updated>
+    </task>
+    <task id="LOCAL-00034" summary="cambiato il modo in cui è generata la lista dei generi">
+      <option name="closed" value="true" />
+      <created>1749644953942</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1749644953942</updated>
+    </task>
+    <task id="LOCAL-00035" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1749645156479</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1749645156479</updated>
+    </task>
+    <task id="LOCAL-00036" summary="cambiati i libri esempio">
+      <option name="closed" value="true" />
+      <created>1749645171722</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1749645171722</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,15 +524,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/GestoreLibreria" />
     </ignored-roots>
-    <MESSAGE value="Initial commit 2" />
-    <MESSAGE value="Reso le classi singleton" />
-    <MESSAGE value="aggiustato un typo" />
-    <MESSAGE value="reso i metodi dinamici" />
-    <MESSAGE value="reso i metodi dinamici e piccoli fix" />
-    <MESSAGE value="refactoring di Libro e creazione di LibroAstratto" />
-    <MESSAGE value="aggiunto il metodo per rimuovre i libri" />
-    <MESSAGE value="aggiunto nuove funzionalità a gestorefiltri" />
-    <MESSAGE value="refactoring generale" />
     <MESSAGE value="rimosso la classe Autore" />
     <MESSAGE value="refactoring" />
     <MESSAGE value="aggiunto classe facade" />
@@ -408,7 +535,21 @@
     <MESSAGE value="abbozzato una gui" />
     <MESSAGE value="rimosso metodi inutili" />
     <MESSAGE value="migliorato la gui" />
-    <option name="LAST_COMMIT_MESSAGE" value="migliorato la gui" />
+    <MESSAGE value="aggiunto funzioni di aggiunta e rimozione libri" />
+    <MESSAGE value="rimosso file inutili" />
+    <MESSAGE value="perfezionato la rimozione dei libri" />
+    <MESSAGE value="aggiunto barra di ricerca" />
+    <MESSAGE value="perfezionato algoritmo di ricerca" />
+    <MESSAGE value="formattato output in tabella dello Stato" />
+    <MESSAGE value="formattato anche la lista dei generi" />
+    <MESSAGE value="creato un transfer dei field" />
+    <MESSAGE value="creato abstract factory dei dialog" />
+    <MESSAGE value="reso ISBN long" />
+    <MESSAGE value="reso ISBN long e aggiunto l'azione di inserimento libri definitivamente" />
+    <MESSAGE value="cambiato il modo in cui è generata la lista dei generi" />
+    <MESSAGE value="refactor" />
+    <MESSAGE value="cambiati i libri esempio" />
+    <option name="LAST_COMMIT_MESSAGE" value="cambiati i libri esempio" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
