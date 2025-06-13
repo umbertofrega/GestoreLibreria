@@ -37,25 +37,25 @@ public class DialogAggiunta implements DialogFactory{
     @Override
     public void aggiungiRisultato(){
         LibroBuilder libroBuilder = new LibroBuilder();
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+        alert.setTitle("Attenzione!");
+        alert.setHeaderText("Attenzione!");
         dialog.setResultConverter(f -> {
             if(!f.getButtonData().equals(ButtonBar.ButtonData.OK_DONE))
                 return null;
             if(!valutaISBN(fields.campoISBN) || !verifica(fields.campoTitolo) || !verifica(fields.campoAutore) || !verifica(fields.campoGeneri)){
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
-                alert.setTitle("Attenzione!");
-                alert.setHeaderText("Attenzione!");
                 alert.setContentText("Compila bene i campi!");
                 alert.showAndWait();
             }
             else {
-                libroBuilder.isbn(Long.parseLong(fields.campoISBN.getText()))
-                        .titolo(fields.campoTitolo.getText())
-                        .autore(fields.campoAutore.getText())
-                        .generi(Libro.traduci(fields.campoGeneri.getText())).build();
+                libroBuilder.isbn(Long.parseLong(fields.campoISBN.getText().trim()))
+                        .titolo(fields.campoTitolo.getText().trim())
+                        .autore(fields.campoAutore.getText().trim())
+                        .generi(Libro.traduci(fields.campoGeneri.getText().trim())).build();
 
                 if (!fields.campoValutazione.getText().isEmpty()) {
-                    libroBuilder.valutazione(Integer.parseInt(fields.campoValutazione.getText()));
+                    libroBuilder.valutazione(Integer.parseInt(fields.campoValutazione.getText().trim()));
                 }
                 libroBuilder.statoLettura(fields.campoStato.getValue());
                 return libroBuilder.build();
@@ -71,7 +71,7 @@ public class DialogAggiunta implements DialogFactory{
     }
 
     static boolean valutaISBN(TextField campo){
-        String testo = campo.getText();
+        String testo = campo.getText().trim();
         if (testo == null || testo.isBlank()) return false;
         if(testo.matches(".*[a-zA-Z].*")) return false;
         if(testo.contains(" ") || testo.contains(",") || testo.contains(".")) return false;

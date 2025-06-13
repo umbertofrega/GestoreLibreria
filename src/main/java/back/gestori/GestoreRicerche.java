@@ -87,8 +87,6 @@ public class GestoreRicerche {
      */
     public List<Libro> cercaPerAutore(List<Libro> libri, String ricerca){
         List<Libro> risultato = new ArrayList<>();
-
-
         ricerca = ".*"+ricerca.toLowerCase().strip()+".*";
 
         for (Libro l : libri) {
@@ -96,7 +94,6 @@ public class GestoreRicerche {
                 risultato.add(l);
             }
         }
-
         return risultato;
     }
 
@@ -109,7 +106,6 @@ public class GestoreRicerche {
      */
     public List<Libro> cercaPerTitolo(List<Libro> libri,String ricerca){
         List<Libro> risultato = new ArrayList<>();
-
         ricerca = ".*"+ricerca.toLowerCase().strip()+".*";
 
         for (Libro l : libri) {
@@ -117,7 +113,7 @@ public class GestoreRicerche {
                 risultato.add(l);
             }
         }
-
+        System.out.println(risultato);
         return risultato;
     }
 

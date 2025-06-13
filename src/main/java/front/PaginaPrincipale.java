@@ -189,7 +189,7 @@ public class PaginaPrincipale extends Application {
         });
 
         modificaLibro.setOnAction(e -> {
-            Libro libroOld = table.getSelectionModel().getSelectedItem();
+            Libro libroOld = table.getSelectionModel().getSelectedItem().clone();
             if (libroOld == null) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
@@ -201,7 +201,6 @@ public class PaginaPrincipale extends Application {
                 dialog.showAndWait();
                 Libro libroNew = dialog.getResult();
                 table.getItems().remove(libroOld);
-
                 if (libroNew == null || esiste(libroNew)) {
                     table.getItems().add(libroOld);
                 } else {

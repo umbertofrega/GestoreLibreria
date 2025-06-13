@@ -5,7 +5,7 @@ import back.stati.Stato;
 import java.util.ArrayList;
 import java.util.List;
 
-public record Libro(
+public record Libro (
         long isbn,
         String titolo,
         String autore,
@@ -34,4 +34,13 @@ public record Libro(
         }
         return generi;
    }
+
+    @Override
+    public Libro clone() {
+        LibroBuilder lb = new LibroBuilder();
+
+        lb.isbn(this.isbn).titolo(this.titolo).autore(this.autore).valutazione(this.valutazione).generi(this.generi).statoLettura(this.statoLettura);
+
+        return lb.build();
+    }
 }
