@@ -81,13 +81,13 @@ public class GestoreRicerche {
 
     /**
      *  Ricerca la lista dei libri scritti da un determinato autore
-     *
+     * @param libri la lista su cui si vuole effettuare la ricerca
      * @param ricerca la stringa contenente il nome dell'autore
      * @return la lista dei libri che hanno l'autore richiesto
      */
-    public List<Libro> cercaPerAutore(String ricerca){
-        List<Libro> libri = getLibri();
+    public List<Libro> cercaPerAutore(List<Libro> libri, String ricerca){
         List<Libro> risultato = new ArrayList<>();
+
 
         ricerca = ".*"+ricerca.toLowerCase().strip()+".*";
 
@@ -96,17 +96,18 @@ public class GestoreRicerche {
                 risultato.add(l);
             }
         }
+
         return risultato;
     }
 
     /**
      *  Ricerca la lista dei libri scritti da un determinato autore
      *
+     * @param libri la lista su cui si vuole effettuare la ricerca
      * @param ricerca la stringa contenente il nome dell'autore
      * @return la lista dei libri che hanno l'autore richiesto
      */
-    public List<Libro> cercaPerTitolo(String ricerca){
-        List<Libro> libri = getLibri();
+    public List<Libro> cercaPerTitolo(List<Libro> libri,String ricerca){
         List<Libro> risultato = new ArrayList<>();
 
         ricerca = ".*"+ricerca.toLowerCase().strip()+".*";
