@@ -49,7 +49,7 @@ public class GestoreRicerche {
     public List<Libro> filtraGeneri(List<String> genere){
         List<Libro> libri = getLibri();
 
-        libri.removeIf(l -> !l.generi().contains(genere));
+        libri.removeIf(l -> !contiene(l.generi(), genere));
 
         return libri;
     }
@@ -121,5 +121,24 @@ public class GestoreRicerche {
             return new GestoreRicerche();
         }
         return instance;
+    }
+
+    /**
+     * Un metodo che permette di vedere se il genere cercato è contenuto nella lista dei generi in maniera meno stretta del contains
+     *
+     * @param generi La lista dei generi
+     * @param ricerca Il genere che si sta ricercando
+     * @return True se il genere è presente, <br> False altrimenti
+     */
+    private boolean contiene(List<String> generi, List<String> ricerca){
+        for (String g : generi) {
+            for(String r : ricerca){
+                r = ".*"+r.toLowerCase().strip();
+                if(g.toLowerCase().matches(r)){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

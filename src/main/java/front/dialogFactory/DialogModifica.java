@@ -45,7 +45,7 @@ public class DialogModifica implements DialogFactory{
         fields.campoISBN.setText(String.valueOf(libro.isbn()));
         fields.campoTitolo.setText(libro.titolo());
         fields.campoAutore.setText(libro.autore());
-        fields.campoValutazione.setText(String.valueOf(libro.valutazione())); // o lascia vuoto se usi stelle
+        fields.campoValutazione.setText(String.valueOf(libro.valutazione()));
         fields.campoGeneri.setText(libro.generiString());
         fields.campoStato.setValue(libro.statoLettura());
         return fields;
