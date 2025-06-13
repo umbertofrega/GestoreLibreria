@@ -75,12 +75,11 @@ public class PaginaPrincipale extends Application {
         barra.setOnAction(event -> {
             KeyStroke.getKeyStroke("ENTER");
             List<Libro> tabella = List.copyOf(table.getItems());
+            table.getItems().clear();
             switch (cercaPer.getValue()){
                 case Ordinamento.TITOLO:
-                    table.getItems().clear();
                     table.getItems().addAll(facade.cerca(tabella, Ordinamento.TITOLO, barra.getText()));
                 case Ordinamento.AUTORE:
-                    table.getItems().clear();
                     table.getItems().addAll(facade.cerca(tabella, Ordinamento.AUTORE, barra.getText()));
             }
         });
@@ -105,7 +104,9 @@ public class PaginaPrincipale extends Application {
             table.getItems().addAll(facade.getLibri());
         });
 
-        barra.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth() - ((cercaPer.getMaxWidth())+(filtro.getMaxWidth())+resetFiltri.getMaxWidth()));
+        barra.setMinWidth(Screen.getPrimary().getVisualBounds().getWidth() / 2);
+
+        barra.setMaxWidth(Screen.getPrimary().getVisualBounds().getWidth() - ((cercaPer.getMaxWidth())+(filtro.getMaxWidth())+resetFiltri.getMaxWidth()));
 
         HBox ricerca = new HBox();
         ricerca.setSpacing(5);
