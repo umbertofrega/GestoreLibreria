@@ -3,6 +3,7 @@ package front;
 import back.Facade;
 import back.stati.Ordinamento;
 import front.dialogFactory.DialogAggiunta;
+import front.dialogFactory.DialogFiltro;
 import front.dialogFactory.DialogModifica;
 import javafx.application.Application;
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -19,6 +20,7 @@ import javafx.stage.Stage;
 import transfer.Libro;
 
 import javax.swing.*;
+import java.util.List;
 
 public class PaginaPrincipale extends Application {
     private final Facade facade = new Facade();
@@ -62,26 +64,51 @@ public class PaginaPrincipale extends Application {
     }
 
     private HBox boxRicerca() {
-        ComboBox<Ordinamento> filtro = new ComboBox<>();
-        filtro.getItems().addAll(Ordinamento.values());
-        filtro.setValue(Ordinamento.TITOLO);
-        filtro.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth() / 15);
+        ComboBox<Ordinamento> cercaPer = new ComboBox<>();
+        cercaPer.getItems().addAll(Ordinamento.values());
+        cercaPer.setValue(Ordinamento.TITOLO);
+        cercaPer.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth() / 15);
 
+        List<Libro> tabella = table.getItems();
 
         TextField barra = new TextField();
         barra.setEditable(true);
         barra.setOnAction(event -> {
             KeyStroke.getKeyStroke("ENTER");
             table.getItems().clear();
-            table.getItems().addAll(facade.cerca(filtro.getValue(), barra.getText()));
+            switch (cercaPer.getValue()){
+                case Ordinamento.TITOLO:
+                    table.getItems().addAll(facade.cerca(cercaPer.getValue(), barra.getText()));
+                case Ordinamento.AUTORE:
+                    table.getItems().addAll(facade.cerca(cercaPer.getValue(), barra.getText()));
+            }
         });
 
-        barra.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth() - (filtro.getPrefWidth()));
+        Button filtro = new Button();
+        filtro.setText("Filtra");
+        filtro.setOnAction(e -> {
+            Dialog<List<Libro>> dialogFiltro = new DialogFiltro(tabella).creaDialog();
+            dialogFiltro.showAndWait();
+            List<Libro> risultato = dialogFiltro.getResult();
+            if(risultato!= null) {
+                table.getItems().clear();
+                table.getItems().addAll(dialogFiltro.getResult());
+            }
+        });
+
+        Button resetFiltri = new Button();
+        resetFiltri.setText("Resetta ricerca");
+        resetFiltri.setOnAction(e -> {
+            table.getItems().clear();
+            table.getItems().addAll(facade.getLibri());
+        });
+
+        barra.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth() - ((cercaPer.getPrefWidth())+(filtro.getPrefWidth())+resetFiltri.getPrefWidth()));
 
         HBox ricerca = new HBox();
         ricerca.setSpacing(5);
 
-        ricerca.getChildren().addAll(barra, filtro);
+        ricerca.getChildren().addAll(barra, cercaPer, filtro, resetFiltri);
         return ricerca;
     }
 
@@ -152,7 +179,7 @@ public class PaginaPrincipale extends Application {
             Dialog<Libro> dialog = new DialogAggiunta().creaDialog();
             dialog.showAndWait();
             Libro aggiunta = dialog.getResult();
-            if(esiste(aggiunta)){
+            if(!esiste(aggiunta)){
                 table.getItems().add(aggiunta);
                 facade.inserisciLibro(aggiunta);
             }
