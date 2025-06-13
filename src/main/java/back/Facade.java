@@ -33,12 +33,12 @@ public class Facade {
         return gestoreRicerche.filtraGeneri(lista,generi);
     }
 
-    public List<Libro> cerca(Ordinamento tipo, String ricerca){
+    public List<Libro> cerca(List<Libro> lista, Ordinamento tipo, String ricerca){
         gestoreRicerche = GestoreRicerche.getInstance();
         if(tipo.equals(Ordinamento.AUTORE)){
-            return gestoreRicerche.cercaPerAutore(ricerca);
+            return gestoreRicerche.cercaPerAutore(lista, ricerca);
         }
-        return gestoreRicerche.cercaPerTitolo(ricerca);
+        return gestoreRicerche.cercaPerTitolo(lista, ricerca);
     }
 
     public boolean inserisciLibro(Libro libro){
