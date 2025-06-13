@@ -23,7 +23,6 @@ public class GestoreRicerche {
      */
     private GestoreRicerche() {}
 
-
     /**
      * Permette di ricevere la lista dei libri non ordinata
      *
@@ -43,29 +42,40 @@ public class GestoreRicerche {
     /**
      * Ritorna una lista di libri con solo i generi richiesti
      *
+     * @param libri La lista che si vuole filtrare
      * @param genere La lista dei generi che vogliono essere visualizzati
      * @return la lista filtrata
      */
-    public List<Libro> filtraGeneri(List<String> genere){
-        List<Libro> libri = getLibri();
+    public List<Libro> filtraGeneri(List<Libro> libri, List<String> genere){
+        List<Libro> ris = new ArrayList<>();
 
-        libri.removeIf(l -> !contiene(l.generi(), genere));
+        for (Libro l : libri) {
+            if(contiene(l.generi(),genere)){
+                ris.add(l);
+            }
+        }
 
-        return libri;
+        return ris;
     }
 
     /**
      * Ritorna una lista di libri con lo stato lettura richiesto
      *
-     * @param stato Lo stato lettura che vuole essere visualizzato
+     * @param libri la lista che si vuole filtrare
+     * @param stati Gli stati lettura che voglioni essere visualizzati
      * @return la lista filtrata
      */
-    public List<Libro> filtraStato(Stato stato){
-        List<Libro> libri = getLibri();
-
-        libri.removeIf(l -> !l.statoLettura().equals(stato));
-
-        return libri;
+    public List<Libro> filtraStato(List<Libro> libri, List<Stato> stati){
+        List<Libro> ris = new ArrayList<>();
+        for (Libro l : libri){
+            for(Stato s : stati){
+                if(l.statoLettura().equals(s)){
+                    ris.add(l);
+                    break;
+                }
+            }
+        }
+        return ris;
     }
 
 

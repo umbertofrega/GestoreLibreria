@@ -23,14 +23,14 @@ public class Facade {
         return gestoreRicerche.getLibri();
     }
 
-    public List<Libro> filtraPer(Stato stato){
+    public List<Libro> filtraPerStato(List<Libro> lista,List<Stato> stati){
         gestoreRicerche = GestoreRicerche.getInstance();
-        return gestoreRicerche.filtraStato(stato);
+        return gestoreRicerche.filtraStato(lista,stati);
     }
 
-    public List<Libro> filtraPer(List<String> generi){
+    public List<Libro> filtraPerGeneri(List<Libro> lista,List<String> generi){
         gestoreRicerche = GestoreRicerche.getInstance();
-        return gestoreRicerche.filtraGeneri(generi);
+        return gestoreRicerche.filtraGeneri(lista,generi);
     }
 
     public List<Libro> cerca(Ordinamento tipo, String ricerca){
