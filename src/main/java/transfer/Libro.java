@@ -33,5 +33,5 @@ public record Libro(
             }
         }
         return generi;
-    }
+   }
 }

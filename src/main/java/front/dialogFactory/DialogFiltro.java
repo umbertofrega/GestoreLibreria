@@ -24,7 +24,7 @@ public class DialogFiltro implements DialogFactory{
     public Dialog<List<Libro>> creaDialog() {
         dialog.setHeaderText("Scegli come filtrare!");
         dialog.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
-
+        dialog.setWidth(fields.generi.getMaxWidth());
         aggiungiRisultato();
 
         ButtonType okButton = new ButtonType("Filtra", ButtonBar.ButtonData.OK_DONE);
@@ -32,7 +32,6 @@ public class DialogFiltro implements DialogFactory{
 
         VBox vbox = new VBox();
         vbox.setSpacing(10);
-
         vbox.getChildren().addAll(fields.stati,fields.generi);
 
         dialog.getDialogPane().setContent(vbox);

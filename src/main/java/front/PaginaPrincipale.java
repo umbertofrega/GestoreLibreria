@@ -105,7 +105,7 @@ public class PaginaPrincipale extends Application {
             table.getItems().addAll(facade.getLibri());
         });
 
-        barra.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth() - ((cercaPer.getPrefWidth())+(filtro.getPrefWidth())+resetFiltri.getPrefWidth()));
+        barra.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth() - ((cercaPer.getMaxWidth())+(filtro.getMaxWidth())+resetFiltri.getMaxWidth()));
 
         HBox ricerca = new HBox();
         ricerca.setSpacing(5);
@@ -171,7 +171,7 @@ public class PaginaPrincipale extends Application {
             } else {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
-
+                alert.setTitle("Attenzione!");
                 alert.setContentText("Devi prima selezionare un libro!");
                 alert.show();
             }
@@ -181,7 +181,7 @@ public class PaginaPrincipale extends Application {
             Dialog<Libro> dialog = new DialogAggiunta().creaDialog();
             dialog.showAndWait();
             Libro aggiunta = dialog.getResult();
-            if(!esiste(aggiunta)){
+            if(aggiunta != null && !esiste(aggiunta)){
                 table.getItems().add(aggiunta);
                 facade.inserisciLibro(aggiunta);
             }
@@ -192,6 +192,7 @@ public class PaginaPrincipale extends Application {
             if (libroOld == null) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+                alert.setTitle("Attenzione!");
                 alert.setContentText("Devi prima selezionare un libro!");
                 alert.show();
             } else {
@@ -199,7 +200,8 @@ public class PaginaPrincipale extends Application {
                 dialog.showAndWait();
                 Libro libroNew = dialog.getResult();
                 table.getItems().remove(libroOld);
-                if (esiste(libroNew)) {
+
+                if (libroNew == null || esiste(libroNew)) {
                     table.getItems().add(libroOld);
                 } else {
                     table.getItems().add(libroNew);
@@ -217,18 +219,16 @@ public class PaginaPrincipale extends Application {
     }
 
     private boolean esiste(Libro aggiunta) {
-        if (aggiunta != null) {
-            for (Libro l : table.getItems()) {
-                if (l.isbn() == aggiunta.isbn()) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
-                    alert.setHeaderText("Ehi!");
-                    alert.setContentText("Un libro con questo codice ISBN è già esistente...");
-                    alert.showAndWait();
-                    return true;
-                }
+        for (Libro l : table.getItems()) {
+            if (l.isbn() == aggiunta.isbn()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
+                alert.setHeaderText("Ehi!");
+                alert.setContentText("Un libro con questo codice ISBN è già esistente...");
+                alert.showAndWait();
+                return true;
             }
         }
-            return false;
+        return false;
     }
 }
