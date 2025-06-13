@@ -8,8 +8,6 @@ import javafx.scene.layout.VBox;
 import transfer.Libro;
 import transfer.LibroBuilder;
 
-import java.util.ArrayList;
-
 public class DialogAggiunta implements DialogFactory{
     Dialog<Libro> dialog = new Dialog<>();
     LibroFields fields = (LibroFields) creaFields();
@@ -54,7 +52,7 @@ public class DialogAggiunta implements DialogFactory{
                 libroBuilder.isbn(Long.parseLong(fields.campoISBN.getText()))
                         .titolo(fields.campoTitolo.getText())
                         .autore(fields.campoAutore.getText())
-                        .generi(traduci(fields.campoGeneri)).build();
+                        .generi(Libro.traduci(fields.campoGeneri.getText())).build();
 
                 if (!fields.campoValutazione.getText().isEmpty()) {
                     libroBuilder.valutazione(Integer.parseInt(fields.campoValutazione.getText()));
@@ -64,21 +62,6 @@ public class DialogAggiunta implements DialogFactory{
             }
             return null;
         });
-    }
-
-    static ArrayList<String> traduci(TextField campo){
-        ArrayList<String> generi = new ArrayList<>();
-        String testo = campo.getText();
-        if (testo == null || testo.isBlank()) return generi;
-
-        String[] tokens = testo.split("[,]+");
-
-        for (String token : tokens) {
-            if (!token.isBlank()) {
-                generi.add(token.trim());
-            }
-        }
-        return generi;
     }
 
      static boolean verifica(TextField campo){

@@ -10,7 +10,8 @@ import javafx.scene.layout.VBox;
 import transfer.Libro;
 import transfer.LibroBuilder;
 
-import static front.dialogFactory.DialogAggiunta.*;
+import static front.dialogFactory.DialogAggiunta.valutaISBN;
+import static front.dialogFactory.DialogAggiunta.verifica;
 
 public class DialogModifica implements DialogFactory{
     Dialog<Libro> dialog = new Dialog<>();
@@ -68,7 +69,7 @@ public class DialogModifica implements DialogFactory{
                 libroBuilder.isbn(Long.parseLong(fields.campoISBN.getText()))
                         .titolo(fields.campoTitolo.getText())
                         .autore(fields.campoAutore.getText())
-                        .generi(traduci(fields.campoGeneri)).build();
+                        .generi(Libro.traduci(fields.campoGeneri.getText())).build();
 
                 if (!fields.campoValutazione.getText().isEmpty()) {
                     libroBuilder.valutazione(Integer.parseInt(fields.campoValutazione.getText()));
