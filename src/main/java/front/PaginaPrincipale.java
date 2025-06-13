@@ -69,24 +69,26 @@ public class PaginaPrincipale extends Application {
         cercaPer.setValue(Ordinamento.TITOLO);
         cercaPer.setPrefWidth(Screen.getPrimary().getVisualBounds().getWidth() / 15);
 
-        List<Libro> tabella = table.getItems();
 
         TextField barra = new TextField();
         barra.setEditable(true);
         barra.setOnAction(event -> {
             KeyStroke.getKeyStroke("ENTER");
-            table.getItems().clear();
+            List<Libro> tabella = List.copyOf(table.getItems());
             switch (cercaPer.getValue()){
                 case Ordinamento.TITOLO:
-                    table.getItems().addAll(facade.cerca(cercaPer.getValue(), barra.getText()));
+                    table.getItems().clear();
+                    table.getItems().addAll(facade.cerca(tabella, Ordinamento.TITOLO, barra.getText()));
                 case Ordinamento.AUTORE:
-                    table.getItems().addAll(facade.cerca(cercaPer.getValue(), barra.getText()));
+                    table.getItems().clear();
+                    table.getItems().addAll(facade.cerca(tabella, Ordinamento.AUTORE, barra.getText()));
             }
         });
 
         Button filtro = new Button();
         filtro.setText("Filtra");
         filtro.setOnAction(e -> {
+            List<Libro> tabella = List.copyOf(table.getItems());
             Dialog<List<Libro>> dialogFiltro = new DialogFiltro(tabella).creaDialog();
             dialogFiltro.showAndWait();
             List<Libro> risultato = dialogFiltro.getResult();
