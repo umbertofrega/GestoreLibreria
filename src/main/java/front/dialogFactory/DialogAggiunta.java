@@ -70,7 +70,7 @@ public class DialogAggiunta implements DialogFactory{
         return true;
     }
 
-      static boolean valutaISBN(TextField campo){
+    static boolean valutaISBN(TextField campo){
         String testo = campo.getText();
         if (testo == null || testo.isBlank()) return false;
         if(testo.matches(".*[a-zA-Z].*")) return false;
