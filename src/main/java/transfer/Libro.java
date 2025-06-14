@@ -21,11 +21,11 @@ public record Libro (
         return String.join(", ", generi);
     }
 
-   public static ArrayList<String> traduci(String testo){
-        ArrayList<String> generi = new ArrayList<>();
+   public static List<String> traduci(String testo){
+        List<String> generi = new ArrayList<>();
         if (testo == null || testo.isBlank()) return generi;
 
-        String[] tokens = testo.split("[,]+");
+        String[] tokens = testo.split(",+");
 
         for (String token : tokens) {
             if (!token.isBlank()) {
