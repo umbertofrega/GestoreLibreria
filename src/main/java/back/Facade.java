@@ -23,12 +23,12 @@ public class Facade {
         return gestoreRicerche.getLibri();
     }
 
-    public List<Libro> filtraPerStato(List<Libro> lista,List<Stato> stati){
+    public List<Libro> filtraPerStato(List<Libro> lista, List<Stato> stati){
         gestoreRicerche = GestoreRicerche.getInstance();
         return gestoreRicerche.filtraStato(lista,stati);
     }
 
-    public List<Libro> filtraPerGeneri(List<Libro> lista,List<String> generi){
+    public List<Libro> filtraPerGeneri(List<Libro> lista, List<String> generi){
         gestoreRicerche = GestoreRicerche.getInstance();
         return gestoreRicerche.filtraGeneri(lista,generi);
     }
