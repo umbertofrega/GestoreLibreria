@@ -113,7 +113,6 @@ public class GestoreRicerche {
                 risultato.add(l);
             }
         }
-        System.out.println(risultato);
         return risultato;
     }
 
