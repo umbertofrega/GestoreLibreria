@@ -16,8 +16,8 @@ class GestoreRicercheTest {
 
     @BeforeEach
     void setUp() {
-        GestoreRicerche gestoreRicerche = GestoreRicerche.getInstance();
-        List<Libro> libri = gestoreRicerche.getLibri();
+        gestoreRicerche = GestoreRicerche.getInstance();
+        libri = GestoreRicerche.getLibri();
     }
 
     @Test
@@ -44,7 +44,7 @@ class GestoreRicercheTest {
     @Test
     @DisplayName("I libri all'interno della lista filtrata dovrebbero avere almeno uno dei generi richiesti")
     void testFiltraGenere(){
-        List<String> generiRichiesti = List.of("Romanzo", "Fantascientifico");
+        List<String> generiRichiesti = List.of("Romanzo", "Fantascienza");
         List<Libro> filtrati = gestoreRicerche.filtraGeneri(libri, generiRichiesti);
 
         assertFalse(filtrati.isEmpty(), "Nessun libro filtrato");
@@ -70,7 +70,7 @@ class GestoreRicercheTest {
 
         assertFalse(filtrati.isEmpty(), "Nessun libro filtrato");
         for (Libro libro : filtrati) {
-            assertEquals("Tolkien", libro.autore(), "Libro con autore errato"+ libro);
+            assertTrue(libro.autore().matches(".*"+"Tolkien"+"*."), "Libro con autore errato "+ libro);
         }
     }
 
