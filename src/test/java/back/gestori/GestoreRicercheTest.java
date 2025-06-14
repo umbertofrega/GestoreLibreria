@@ -37,7 +37,7 @@ class GestoreRicercheTest {
 
         assertFalse(filtrati.isEmpty(), "Nessun libro filtrato");
         for (Libro libro : filtrati) {
-            assertTrue(stati.contains(libro.statoLettura()), "Libro con stato sbagliato"+ libro.toString());
+            assertTrue(stati.contains(libro.statoLettura()), "Libro con stato sbagliato"+ libro);
         }
     }
 
@@ -45,7 +45,7 @@ class GestoreRicercheTest {
     @DisplayName("I libri all'interno della lista filtrata dovrebbero avere almeno uno dei generi richiesti")
     void testFiltraGenere(){
         List<String> generiRichiesti = List.of("Romanzo", "Fantascientifico");
-        List<Libro> filtrati = gestoreRicerche.filtraGeneri(gestoreRicerche.getLibri(), generiRichiesti);
+        List<Libro> filtrati = gestoreRicerche.filtraGeneri(libri, generiRichiesti);
 
         assertFalse(filtrati.isEmpty(), "Nessun libro filtrato");
 
@@ -70,7 +70,7 @@ class GestoreRicercheTest {
 
         assertFalse(filtrati.isEmpty(), "Nessun libro filtrato");
         for (Libro libro : filtrati) {
-            assertEquals("Tolkien", libro.autore(), "Libro con autore errato"+ libro.toString());
+            assertEquals("Tolkien", libro.autore(), "Libro con autore errato"+ libro);
         }
     }
 
@@ -81,7 +81,7 @@ class GestoreRicercheTest {
 
         assertFalse(filtrati.isEmpty(), "Nessun libro filtrato");
         for (Libro libro : filtrati) {
-            assertEquals("Dune", libro.titolo(), "Libro con titolo errato" + libro.toString());
+            assertEquals("Dune", libro.titolo(), "Libro con titolo errato" + libro);
         }
     }
 
