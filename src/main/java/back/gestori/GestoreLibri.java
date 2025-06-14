@@ -6,8 +6,7 @@ import transfer.Libro;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.List;
 
 import static back.gestori.GestoreRicerche.getLibri;
 
@@ -29,7 +28,7 @@ public class GestoreLibri {
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
     public boolean inserisciLibro(Libro libro) {
-        Collection<Libro> libri = getLibri();
+        List<Libro> libri = getLibri();
         libri.add(libro);
         return scrivi(libri);
     }
@@ -40,7 +39,7 @@ public class GestoreLibri {
      * @param libri Una lista di libro
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
-    public boolean inserisciLibro(Collection<Libro> libri) {
+    public boolean inserisciLibro(List<Libro> libri) {
         return scrivi(libri);
     }
 
@@ -51,7 +50,7 @@ public class GestoreLibri {
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
     public boolean rimuoviLibro(Libro libro) {
-        Collection<Libro> libri = getLibri();
+        List<Libro> libri = getLibri();
         libri.remove(libro);
         return scrivi(libri);
     }
@@ -64,13 +63,13 @@ public class GestoreLibri {
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
     public boolean aggiornaLibro(Libro libroOld, Libro libroNew) {
-        ArrayList<Libro> libri = (ArrayList<Libro>) getLibri();
+        List<Libro> libri = getLibri();
         libri.remove(libroOld);
         libri.add(libroNew);
         return scrivi(libri);
     }
 
-    private static boolean scrivi(Collection<Libro> libri) {
+    private static boolean scrivi(List<Libro> libri) {
         try {
             mapper.writeValue(documento, libri);
         } catch (IOException e) {
