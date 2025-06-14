@@ -10,7 +10,8 @@ import javafx.scene.layout.VBox;
 import transfer.Libro;
 import transfer.LibroBuilder;
 
-import static front.dialogFactory.DialogAggiunta.*;
+import static front.dialogFactory.DialogAggiunta.valutaFields;
+import static front.dialogFactory.DialogAggiunta.valutaValutazione;
 
 public class DialogModifica implements DialogFactory{
     Dialog<Libro> dialog = new Dialog<>();
@@ -56,20 +57,19 @@ public class DialogModifica implements DialogFactory{
         dialog.setResultConverter(f -> {
             if(!f.getButtonData().equals(ButtonBar.ButtonData.OK_DONE))
                 return null;
-            if(!valutaISBN(fields.campoISBN) || !verifica(fields.campoTitolo) || !verifica(fields.campoAutore) || !verifica(fields.campoGeneri)){
+            if(!valutaFields(fields)){
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
                 alert.setTitle("Attenzione!");
                 alert.setHeaderText("Attenzione!");
                 alert.setContentText("Compila bene i campi!");
                 alert.showAndWait();
-            }
-            else {
+            } else {
                 libroBuilder.isbn(Long.parseLong(fields.campoISBN.getText()))
                         .titolo(fields.campoTitolo.getText())
                         .autore(fields.campoAutore.getText())
                         .generi(Libro.traduci(fields.campoGeneri.getText())).build();
-                if (!valutaValutazione(fields.campoValutazione)) {
+                if (valutaValutazione(fields.campoValutazione)) {
                     libroBuilder.valutazione(Integer.parseInt(fields.campoValutazione.getText()));
                 }
                 libroBuilder.statoLettura(fields.campoStato.getValue());

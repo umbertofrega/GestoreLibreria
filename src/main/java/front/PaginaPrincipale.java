@@ -44,7 +44,7 @@ public class PaginaPrincipale extends Application {
 
         table.getItems().addAll(facade.getLibri());
 
-        final HBox bottoni = boxBottoni(stage);
+        final HBox bottoni = boxBottoni();
         Label label = new Label("Gestore Libreria");
 
 
@@ -151,7 +151,7 @@ public class PaginaPrincipale extends Application {
         table.getColumns().addAll(ISBN, titolo, autore, valutazione, generi, statoLettura);
     }
 
-    private HBox boxBottoni(Stage stage) {
+    private HBox boxBottoni() {
         Button aggiungiLibro = new Button("Aggiungi Libro");
         Button modificaLibro = new Button("Modifica Libro");
         Button eliminaLibro = new Button("Elimina Libro");
@@ -173,6 +173,7 @@ public class PaginaPrincipale extends Application {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
                 alert.setTitle("Attenzione!");
+                alert.setHeaderText("Ehi...");
                 alert.setContentText("Devi prima selezionare un libro!");
                 alert.show();
             }
@@ -189,14 +190,15 @@ public class PaginaPrincipale extends Application {
         });
 
         modificaLibro.setOnAction(e -> {
-            Libro libroOld = table.getSelectionModel().getSelectedItem().clone();
-            if (libroOld == null) {
+
+            if (table.getSelectionModel().getSelectedItem() == null) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
                 alert.setTitle("Attenzione!");
                 alert.setContentText("Devi prima selezionare un libro!");
                 alert.show();
             } else {
+                Libro libroOld = table.getSelectionModel().getSelectedItem().clone();
                 Dialog<Libro> dialog = new DialogModifica(libroOld).creaDialog();
                 dialog.showAndWait();
                 Libro libroNew = dialog.getResult();
