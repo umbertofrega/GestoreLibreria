@@ -54,7 +54,7 @@ public class DialogAggiunta implements DialogFactory{
                         .autore(fields.campoAutore.getText().trim())
                         .generi(Libro.traduci(fields.campoGeneri.getText().trim())).build();
 
-                if (!fields.campoValutazione.getText().isEmpty()) {
+                if (!valutaValutazione(fields.campoValutazione)) {
                     libroBuilder.valutazione(Integer.parseInt(fields.campoValutazione.getText().trim()));
                 }
                 libroBuilder.statoLettura(fields.campoStato.getValue());
@@ -67,6 +67,15 @@ public class DialogAggiunta implements DialogFactory{
      static boolean verifica(TextField campo){
         String testo = campo.getText();
         if (testo == null || testo.isBlank()) return false;
+        return true;
+    }
+
+    static boolean valutaValutazione(TextField campo){
+        String testo = campo.getText();
+        if (testo == null || testo.isBlank()) return false;
+        testo=testo.trim();
+        int voto = Integer.parseInt(testo);
+        if(voto > 10 || voto < 0) return false;
         return true;
     }
 

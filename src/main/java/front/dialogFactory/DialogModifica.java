@@ -10,8 +10,7 @@ import javafx.scene.layout.VBox;
 import transfer.Libro;
 import transfer.LibroBuilder;
 
-import static front.dialogFactory.DialogAggiunta.valutaISBN;
-import static front.dialogFactory.DialogAggiunta.verifica;
+import static front.dialogFactory.DialogAggiunta.*;
 
 public class DialogModifica implements DialogFactory{
     Dialog<Libro> dialog = new Dialog<>();
@@ -42,11 +41,11 @@ public class DialogModifica implements DialogFactory{
     @Override
     public InterfacciaFields creaFields() {
         fields = new LibroFields();
-        fields.campoISBN.setText(String.valueOf(libro.isbn()));
-        fields.campoTitolo.setText(libro.titolo());
-        fields.campoAutore.setText(libro.autore());
-        fields.campoValutazione.setText(String.valueOf(libro.valutazione()));
-        fields.campoGeneri.setText(libro.generiString());
+        fields.campoISBN.setText(String.valueOf(libro.isbn()).trim());
+        fields.campoTitolo.setText(libro.titolo().trim());
+        fields.campoAutore.setText(libro.autore().trim());
+        fields.campoValutazione.setText(String.valueOf(libro.valutazione()).trim());
+        fields.campoGeneri.setText(libro.generiString().trim());
         fields.campoStato.setValue(libro.statoLettura());
         return fields;
     }
@@ -70,8 +69,7 @@ public class DialogModifica implements DialogFactory{
                         .titolo(fields.campoTitolo.getText())
                         .autore(fields.campoAutore.getText())
                         .generi(Libro.traduci(fields.campoGeneri.getText())).build();
-
-                if (!fields.campoValutazione.getText().isEmpty()) {
+                if (!valutaValutazione(fields.campoValutazione)) {
                     libroBuilder.valutazione(Integer.parseInt(fields.campoValutazione.getText()));
                 }
                 libroBuilder.statoLettura(fields.campoStato.getValue());
