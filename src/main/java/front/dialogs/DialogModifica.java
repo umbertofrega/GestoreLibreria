@@ -1,5 +1,8 @@
 package front.dialogs;
 
+import back.transfer.Libro;
+import back.transfer.LibroBuilder;
+import back.transfer.LibroValidator;
 import front.fields.InterfacciaFields;
 import front.fields.LibroFields;
 import javafx.scene.control.Alert;
@@ -7,9 +10,6 @@ import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.layout.VBox;
-import transfer.Libro;
-import transfer.LibroBuilder;
-import transfer.LibroValidator;
 
 import static front.dialogs.DialogAggiunta.valutaFields;
 

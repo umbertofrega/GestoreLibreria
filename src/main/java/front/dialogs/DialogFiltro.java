@@ -1,13 +1,13 @@
 package front.dialogs;
 
 import back.Facade;
+import back.transfer.Libro;
 import front.fields.FiltroFields;
 import front.fields.InterfacciaFields;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.layout.VBox;
-import transfer.Libro;
 
 import java.util.List;
 
