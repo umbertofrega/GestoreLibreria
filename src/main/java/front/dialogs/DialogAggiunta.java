@@ -1,4 +1,4 @@
-package front.dialogFactory;
+package front.dialogs;
 
 
 import front.fields.InterfacciaFields;
@@ -7,8 +7,9 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import transfer.Libro;
 import transfer.LibroBuilder;
+import transfer.LibroValidator;
 
-public class DialogAggiunta implements DialogFactory{
+public class DialogAggiunta implements DialogInterface {
     Dialog<Libro> dialog = new Dialog<>();
     LibroFields fields = (LibroFields) creaFields();
 
@@ -41,12 +42,7 @@ public class DialogAggiunta implements DialogFactory{
             if(!f.getButtonData().equals(ButtonBar.ButtonData.OK_DONE))
                 return null;
             if(!valutaFields(fields)){
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
-                alert.setTitle("Attenzione!");
-                alert.setHeaderText("Ehi...");
-                alert.setContentText("Compila bene i campi");
-                alert.showAndWait();
+                new AlertPersonale(Alert.AlertType.ERROR,"Attenzione!","Ehi...","Compila bene i campi").showAndWait();
             }
             else {
                 libroBuilder.isbn(Long.parseLong(fields.campoISBN.getText().trim()))
@@ -64,25 +60,16 @@ public class DialogAggiunta implements DialogFactory{
         });
     }
 
-     static boolean verifica(TextField campo){
-        String testo = campo.getText();
-         return testo != null && !testo.isBlank();
+     private static boolean verifica(TextField campo){
+        return LibroValidator.verifica(campo.getText());
      }
 
-    static boolean valutaValutazione(TextField campo){
-        if(campo.getText() == null || campo.getText().isBlank()) return true;
-        String testo = campo.getText().trim();
-        int voto = Integer.parseInt(testo);
-        return voto <= 10 && voto >= 0;
+    private static boolean valutaValutazione(TextField campo){
+        return LibroValidator.valutaValutazione(campo.getText());
     }
 
-    static boolean valutaISBN(TextField campo) {
-        if(campo.getText() == null || campo.getText().isBlank()) return true;
-        String testo = campo.getText().trim();
-        if(testo.matches(".*[a-zA-Z].*")) return false;
-        if(testo.contains(" ") || testo.contains(",") || testo.contains(".")) return false;
-        if(testo.length()!=13) return false;
-        return true;
+    private static boolean valutaISBN(TextField campo) {
+        return LibroValidator.valutaISBN(campo.getText());
     }
 
     static boolean valutaFields(LibroFields fields){

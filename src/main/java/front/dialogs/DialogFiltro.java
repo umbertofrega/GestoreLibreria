@@ -1,4 +1,4 @@
-package front.dialogFactory;
+package front.dialogs;
 
 import back.Facade;
 import front.fields.FiltroFields;
@@ -11,7 +11,7 @@ import transfer.Libro;
 
 import java.util.List;
 
-public class DialogFiltro implements DialogFactory{
+public class DialogFiltro implements DialogInterface {
     Dialog<List<Libro>> dialog = new Dialog<>();
     FiltroFields fields = new FiltroFields();
     List<Libro> libri;

@@ -1,12 +1,9 @@
-package front.dialogFactory;
+package front.dialogs;
 
 import front.fields.InterfacciaFields;
 import javafx.scene.control.Dialog;
 
-/**
- * Interfaccia generica dell'abstract factory per la crazione dei dialog
- */
-public interface DialogFactory {
+public interface DialogInterface {
 
     /**
      * Metodo creazione effettiva del dialog

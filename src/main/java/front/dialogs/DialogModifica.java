@@ -1,4 +1,4 @@
-package front.dialogFactory;
+package front.dialogs;
 
 import front.fields.InterfacciaFields;
 import front.fields.LibroFields;
@@ -9,11 +9,11 @@ import javafx.scene.control.Dialog;
 import javafx.scene.layout.VBox;
 import transfer.Libro;
 import transfer.LibroBuilder;
+import transfer.LibroValidator;
 
-import static front.dialogFactory.DialogAggiunta.valutaFields;
-import static front.dialogFactory.DialogAggiunta.valutaValutazione;
+import static front.dialogs.DialogAggiunta.valutaFields;
 
-public class DialogModifica implements DialogFactory{
+public class DialogModifica implements DialogInterface {
     Dialog<Libro> dialog = new Dialog<>();
     private Libro libro;
     private LibroFields fields;
@@ -58,19 +58,14 @@ public class DialogModifica implements DialogFactory{
             if(!f.getButtonData().equals(ButtonBar.ButtonData.OK_DONE))
                 return null;
             if(!valutaFields(fields)){
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
-                alert.setTitle("Attenzione!");
-                alert.setHeaderText("Attenzione!");
-                alert.setContentText("Compila bene i campi!");
-                alert.showAndWait();
+                new AlertPersonale(Alert.AlertType.ERROR,"Attenzione!","Ehi...","Compila bene i campi").showAndWait();
             } else {
                 libroBuilder.isbn(Long.parseLong(fields.campoISBN.getText()))
                         .titolo(fields.campoTitolo.getText())
                         .autore(fields.campoAutore.getText())
                         .generi(Libro.traduci(fields.campoGeneri.getText())).build();
-                if (valutaValutazione(fields.campoValutazione)) {
-                    libroBuilder.valutazione(Integer.parseInt(fields.campoValutazione.getText()));
+                if (LibroValidator.valutaValutazione(fields.campoValutazione.getText())) {
+                    libroBuilder.valutazione(Integer.parseInt(fields.campoValutazione.getText().trim()));
                 }
                 libroBuilder.statoLettura(fields.campoStato.getValue());
                 return libroBuilder.build();
