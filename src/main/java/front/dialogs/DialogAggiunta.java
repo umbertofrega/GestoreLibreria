@@ -42,14 +42,13 @@ public class DialogAggiunta implements DialogInterface {
             if(!f.getButtonData().equals(ButtonBar.ButtonData.OK_DONE))
                 return null;
             if(!valutaFields(fields)){
-                new AlertPersonale(Alert.AlertType.ERROR,"Attenzione!","Ehi...","Compila bene i campi").showAndWait();
+                new AlertPersonale(Alert.AlertType.ERROR,"Attenzione!","Compila bene","Due libri con lo stesso ISBN non possono esistere oppure devi riempire i campi con l'asterisco! ").showAndWait();
             }
             else {
                 libroBuilder.isbn(Long.parseLong(fields.campoISBN.getText().trim()))
                         .titolo(fields.campoTitolo.getText().trim())
                         .autore(fields.campoAutore.getText().trim())
                         .generi(Libro.traduci(fields.campoGeneri.getText().trim())).build();
-
                 if (fields.campoValutazione != null && !fields.campoValutazione.getText().isBlank()) {
                     libroBuilder.valutazione(Integer.parseInt(fields.campoValutazione.getText().trim()));
                 }
@@ -69,7 +68,8 @@ public class DialogAggiunta implements DialogInterface {
     }
 
     private static boolean valutaISBN(TextField campo) {
-        return LibroValidator.valutaISBN(campo.getText());
+        return LibroValidator.valutaISBN(campo.getText()) &&
+               !LibroValidator.esisteISBN(campo.getText());
     }
 
     static boolean valutaFields(LibroFields fields){

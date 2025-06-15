@@ -38,7 +38,7 @@ public class ModificaHandler implements EventHandler<ActionEvent> {
 
         table.getItems().remove(libroOld);
 
-        if (libroNew == null || LibroValidator.esisteISBN(libroNew,table.getItems())) {
+        if (libroNew == null || LibroValidator.esisteISBN(libroNew)) {
             table.getItems().add(libroOld);
         } else {
             table.getItems().add(libroNew);

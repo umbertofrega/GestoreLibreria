@@ -25,7 +25,7 @@ public class AggiuntaHandler implements EventHandler<ActionEvent> {
         dialog.showAndWait();
         Libro aggiunta = dialog.getResult();
 
-        if (aggiunta != null && !LibroValidator.esisteISBN(aggiunta,table.getItems())) {
+        if (aggiunta != null && !LibroValidator.esisteISBN(aggiunta)) {
             table.getItems().add(aggiunta);
 
             if (!facade.inserisciLibro(aggiunta)) {
