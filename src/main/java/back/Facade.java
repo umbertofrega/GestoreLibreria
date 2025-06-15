@@ -4,7 +4,7 @@ import back.gestori.GestoreLibri;
 import back.gestori.GestoreRicerche;
 import back.stati.Ordinamento;
 import back.stati.Stato;
-import transfer.Libro;
+import back.transfer.Libro;
 
 import java.util.List;
 
