@@ -28,6 +28,7 @@ public class GestoreLibri {
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
     public boolean inserisciLibro(Libro libro) {
+        assert libro != null : "Non si può inserire un libro nullo";
         List<Libro> libri = getLibri();
         libri.add(libro);
         return scrivi(libri);
@@ -40,6 +41,7 @@ public class GestoreLibri {
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
     public boolean inserisciLibro(List<Libro> libri) {
+        assert libri != null : "Non si può inserire un libro nullo";
         return scrivi(libri);
     }
 
@@ -50,6 +52,7 @@ public class GestoreLibri {
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
     public boolean rimuoviLibro(Libro libro) {
+        assert libro != null : "Non si può rimuovere un libro nullo";
         List<Libro> libri = getLibri();
         libri.remove(libro);
         return scrivi(libri);
@@ -63,6 +66,9 @@ public class GestoreLibri {
      * @return True se l'operazione è andata a buon fine <br> False altrimenti
      */
     public boolean aggiornaLibro(Libro libroOld, Libro libroNew) {
+        assert libroOld != null : "Non si può modificare un libro nullo";
+        assert libroNew != null : "Non si può inserire un libro nullo";
+        assert libroNew != libroOld : "Non c'è nessun aggiornamento";
         List<Libro> libri = getLibri();
         libri.remove(libroOld);
         libri.add(libroNew);

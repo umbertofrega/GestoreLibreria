@@ -80,7 +80,8 @@ public class GestoreRicerche {
 
 
     /**
-     *  Ricerca la lista dei libri scritti da un determinato autore
+     * Ricerca la lista dei libri scritti da un determinato autore
+     *
      * @param libri la lista su cui si vuole effettuare la ricerca
      * @param ricerca la stringa contenente il nome dell'autore
      * @return la lista dei libri che hanno l'autore richiesto
