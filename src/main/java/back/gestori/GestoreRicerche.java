@@ -1,9 +1,9 @@
 package back.gestori;
 
 import back.stati.Stato;
+import back.transfer.Libro;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import transfer.Libro;
 
 import java.io.File;
 import java.io.IOException;

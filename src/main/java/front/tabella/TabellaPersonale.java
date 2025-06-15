@@ -1,11 +1,11 @@
 package front.tabella;
 
+import back.transfer.Libro;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Screen;
-import transfer.Libro;
 
 public class TabellaPersonale extends TableView<Libro> {
     public TabellaPersonale() {
@@ -39,7 +39,6 @@ public class TabellaPersonale extends TableView<Libro> {
         ISBN.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().isbn()));
         generi.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().generiString()));
         statoLettura.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().statoLettura().toString()));
-
 
         this.getColumns().addAll(ISBN, titolo, autore, valutazione, generi, statoLettura);
     }

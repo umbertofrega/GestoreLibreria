@@ -2,12 +2,12 @@ package front;
 
 import back.Facade;
 import back.stati.Ordinamento;
-import front.bottoni.AggiungiLibroHandler;
-import front.bottoni.BottoneModificaHandler;
-import front.bottoni.EliminaLibroHandler;
-import front.dialogs.AlertPersonale;
-import front.dialogs.DialogFiltro;
+import back.transfer.Libro;
 import front.tabella.TabellaPersonale;
+import handlers.AggiuntaHandler;
+import handlers.EliminazioneHandler;
+import handlers.FiltroHandler;
+import handlers.ModificaHandler;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -18,8 +18,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import transfer.Libro;
-import transfer.LibroValidator;
 
 import javax.swing.*;
 import java.util.List;
@@ -40,11 +38,6 @@ public class PaginaPrincipale extends Application {
         stage.setTitle("Gestore Libreria");
 
         this.table = new TabellaPersonale();
-
-        Facade facade = new Facade();
-
-        System.out.println(facade.getLibri());
-
         table.getItems().addAll(facade.getLibri());
 
         final HBox bottoni = boxBottoni();
@@ -76,7 +69,7 @@ public class PaginaPrincipale extends Application {
             KeyStroke.getKeyStroke("ENTER");
             List<Libro> tabella = List.copyOf(table.getItems());
             table.getItems().clear();
-            switch (cercaPer.getValue()){
+            switch (cercaPer.getValue()) {
                 case Ordinamento.TITOLO:
                     table.getItems().addAll(facade.cerca(tabella, Ordinamento.TITOLO, barra.getText()));
                 case Ordinamento.AUTORE:
@@ -86,16 +79,7 @@ public class PaginaPrincipale extends Application {
 
         Button filtro = new Button();
         filtro.setText("Filtra");
-        filtro.setOnAction(e -> {
-            List<Libro> tabella = List.copyOf(table.getItems());
-            Dialog<List<Libro>> dialogFiltro = new DialogFiltro(tabella).creaDialog();
-            dialogFiltro.showAndWait();
-            List<Libro> risultato = dialogFiltro.getResult();
-            if(risultato!= null) {
-                table.getItems().clear();
-                table.getItems().addAll(dialogFiltro.getResult());
-            }
-        });
+        filtro.setOnAction(new FiltroHandler(table));
 
         Button resetFiltri = new Button();
         resetFiltri.setText("Resetta ricerca");
@@ -106,7 +90,7 @@ public class PaginaPrincipale extends Application {
 
         barra.setMinWidth(Screen.getPrimary().getVisualBounds().getWidth() / 2);
 
-        barra.setMaxWidth(Screen.getPrimary().getVisualBounds().getWidth() - ((cercaPer.getMaxWidth())+(filtro.getMaxWidth())+resetFiltri.getMaxWidth()));
+        barra.setMaxWidth(Screen.getPrimary().getVisualBounds().getWidth() - ((cercaPer.getMaxWidth()) + (filtro.getMaxWidth()) + resetFiltri.getMaxWidth()));
 
         HBox ricerca = new HBox();
         ricerca.setSpacing(5);
@@ -120,11 +104,11 @@ public class PaginaPrincipale extends Application {
         Button modificaLibro = new Button("Modifica Libro");
         Button eliminaLibro = new Button("Elimina Libro");
 
-        eliminaLibro.setOnAction(new EliminaLibroHandler(table,facade));
+        eliminaLibro.setOnAction(new EliminazioneHandler(table));
 
-        aggiungiLibro.setOnAction(new AggiungiLibroHandler(table,facade));
+        aggiungiLibro.setOnAction(new AggiuntaHandler(table));
 
-        modificaLibro.setOnAction(new BottoneModificaHandler(table,facade));
+        modificaLibro.setOnAction(new ModificaHandler(table));
 
         final HBox bottoni = new HBox();
 
@@ -132,13 +116,5 @@ public class PaginaPrincipale extends Application {
         bottoni.setSpacing(10);
 
         return bottoni;
-    }
-
-    private boolean esiste(Libro aggiunta) {
-        if(!LibroValidator.esisteISBN(aggiunta,table.getItems())) {
-            new AlertPersonale(Alert.AlertType.ERROR,"Attento","Ehi!","Un libro con questo codice ISBN è già esistente...").showAndWait();
-            return true;
-        }
-        return false;
     }
 }
