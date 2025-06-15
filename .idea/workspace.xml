@@ -4,15 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b77f71e-82c9-464a-8a3f-c8585b859f95" name="Changes" comment="cambiati i libri esempio">
-      <change afterPath="$PROJECT_DIR$/src/main/java/front/dialogFactory/DialogModifica.java" afterDir="false" />
+    <list default="true" id="6b77f71e-82c9-464a-8a3f-c8585b859f95" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/EliminazioneHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/FiltroHandler.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/prova.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/front/dialogFactory/DialogAggiunta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/dialogFactory/DialogAggiunta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/front/fields/AbstractField.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/front/paginaPrincipale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/paginaPrincipale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/libri.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data/libri.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/back/Facade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/Facade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/back/gestori/GestoreLibri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/gestori/GestoreLibri.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/back/gestori/GestoreRicerche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/gestori/GestoreRicerche.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/front/PaginaPrincipale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/PaginaPrincipale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/front/bottoni/AggiungiLibroHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/AggiuntaHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/front/bottoni/BottoneModificaHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/ModificaHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/front/bottoni/EliminaLibroHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/front/dialogs/DialogAggiunta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/dialogs/DialogAggiunta.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/front/dialogs/DialogFiltro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/dialogs/DialogFiltro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/front/dialogs/DialogModifica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/dialogs/DialogModifica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/front/tabella/TabellaPersonale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/tabella/TabellaPersonale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/transfer/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/transfer/Libro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/transfer/LibroBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/transfer/LibroBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/transfer/LibroValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/transfer/LibroValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/back/FacadeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/back/gestori/GestoreLibriTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/back/gestori/GestoreLibriTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/back/gestori/GestoreRicercheTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/back/gestori/GestoreRicercheTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
@@ -26,6 +40,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -68,48 +83,65 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.FinestraAggiunta.executor&quot;: &quot;Run&quot;,
-    &quot;Application.GestoreRicerche.executor&quot;: &quot;Run&quot;,
-    &quot;Application.HelloFX.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.paginaPrincipale.executor&quot;: &quot;Run&quot;,
-    &quot;Application.prova.executor&quot;: &quot;Run&quot;,
-    &quot;Application.prove.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gestore-libri [clean,javafx:run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gestore-libri [mvn,clean,javafx:run].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.gestore-libri [mvn,javafx:run].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;325&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.FinestraAggiunta.executor": "Run",
+    "Application.GestoreRicerche.executor": "Run",
+    "Application.HelloFX.executor": "Run",
+    "Application.LibroGenerator.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.paginaPrincipale.executor": "Run",
+    "Application.prova.executor": "Run",
+    "Application.prove.executor": "Run",
+    "Maven.gestore-libri [clean,javafx:run].executor": "Run",
+    "Maven.gestore-libri [mvn,clean,javafx:run].executor": "Run",
+    "Maven.gestore-libri [mvn,javafx:run].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "325",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java",
+    "last_opened_file_path": "/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/back",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "editor.preferences.completion",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;CSS&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "CSS"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/front/Fields" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$/src/main/resources/data" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="back.gestori" />
+      <recent name="back.stati" />
       <recent name="front.dialogFactory" />
       <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="back" />
+      <recent name="back.gestori" />
     </key>
   </component>
   <component name="RunManager">
@@ -203,223 +235,20 @@
       <workItem from="1749636990995" duration="4424000" />
       <workItem from="1749641999817" duration="4010000" />
       <workItem from="1749759353255" duration="1784000" />
-      <workItem from="1749761152505" duration="1678000" />
-    </task>
-    <task id="LOCAL-00001" summary="Initial commit 2">
-      <option name="closed" value="true" />
-      <created>1747159922754</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1747159922754</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Reso le classi singleton">
-      <option name="closed" value="true" />
-      <created>1748367023330</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1748367023330</updated>
-    </task>
-    <task id="LOCAL-00003" summary="aggiustato un typo">
-      <option name="closed" value="true" />
-      <created>1748367242807</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1748367242807</updated>
-    </task>
-    <task id="LOCAL-00004" summary="reso i metodi dinamici e piccoli fix">
-      <option name="closed" value="true" />
-      <created>1748367528299</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1748367528299</updated>
-    </task>
-    <task id="LOCAL-00005" summary="reso i metodi dinamici e piccoli fix">
-      <option name="closed" value="true" />
-      <created>1748367543739</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1748367543739</updated>
-    </task>
-    <task id="LOCAL-00006" summary="refactoring di Libro e creazione di LibroAstratto">
-      <option name="closed" value="true" />
-      <created>1748860187536</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1748860187536</updated>
-    </task>
-    <task id="LOCAL-00007" summary="aggiunto il metodo per rimuovre i libri">
-      <option name="closed" value="true" />
-      <created>1749030660121</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1749030660121</updated>
-    </task>
-    <task id="LOCAL-00008" summary="aggiunto nuove funzionalità a gestorefiltri">
-      <option name="closed" value="true" />
-      <created>1749036387334</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1749036387334</updated>
-    </task>
-    <task id="LOCAL-00009" summary="refactoring generale">
-      <option name="closed" value="true" />
-      <created>1749036405033</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1749036405033</updated>
-    </task>
-    <task id="LOCAL-00010" summary="rimosso la classe Autore">
-      <option name="closed" value="true" />
-      <created>1749123973769</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1749123973769</updated>
-    </task>
-    <task id="LOCAL-00011" summary="refactoring">
-      <option name="closed" value="true" />
-      <created>1749126450077</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1749126450077</updated>
-    </task>
-    <task id="LOCAL-00012" summary="aggiunto classe facade">
-      <option name="closed" value="true" />
-      <created>1749127704231</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1749127704232</updated>
-    </task>
-    <task id="LOCAL-00013" summary="reso Libro un record">
-      <option name="closed" value="true" />
-      <created>1749128641011</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1749128641011</updated>
-    </task>
-    <task id="LOCAL-00014" summary="aggiunti un paio di libri da test">
-      <option name="closed" value="true" />
-      <created>1749128694975</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1749128694975</updated>
-    </task>
-    <task id="LOCAL-00015" summary="aggiunti un paio di libri da test">
-      <option name="closed" value="true" />
-      <created>1749128702192</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1749128702192</updated>
-    </task>
-    <task id="LOCAL-00016" summary="aggiunta la classe Facade">
-      <option name="closed" value="true" />
-      <created>1749128730653</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1749128730653</updated>
-    </task>
-    <task id="LOCAL-00017" summary="reso libro builder e aggiustato un typo">
-      <option name="closed" value="true" />
-      <created>1749205753949</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1749205753949</updated>
-    </task>
-    <task id="LOCAL-00018" summary="aggiustato dipendenze">
-      <option name="closed" value="true" />
-      <created>1749208538252</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1749208538252</updated>
-    </task>
-    <task id="LOCAL-00019" summary="abbozzato una gui">
-      <option name="closed" value="true" />
-      <created>1749208567473</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1749208567473</updated>
-    </task>
-    <task id="LOCAL-00020" summary="rimosso metodi inutili">
-      <option name="closed" value="true" />
-      <created>1749377230530</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1749377230530</updated>
-    </task>
-    <task id="LOCAL-00021" summary="migliorato la gui">
-      <option name="closed" value="true" />
-      <created>1749377252658</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1749377252658</updated>
-    </task>
-    <task id="LOCAL-00022" summary="aggiunto funzioni di aggiunta e rimozione libri">
-      <option name="closed" value="true" />
-      <created>1749387256213</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1749387256213</updated>
-    </task>
-    <task id="LOCAL-00023" summary="rimosso file inutili">
-      <option name="closed" value="true" />
-      <created>1749387309295</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1749387309295</updated>
-    </task>
-    <task id="LOCAL-00024" summary="perfezionato la rimozione dei libri">
-      <option name="closed" value="true" />
-      <created>1749462706889</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1749462706889</updated>
-    </task>
-    <task id="LOCAL-00025" summary="aggiunto barra di ricerca">
-      <option name="closed" value="true" />
-      <created>1749464725847</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1749464725847</updated>
-    </task>
-    <task id="LOCAL-00026" summary="perfezionato algoritmo di ricerca">
-      <option name="closed" value="true" />
-      <created>1749464747044</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1749464747044</updated>
-    </task>
-    <task id="LOCAL-00027" summary="formattato output in tabella dello Stato">
-      <option name="closed" value="true" />
-      <created>1749465544510</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1749465544510</updated>
+      <workItem from="1749761152505" duration="3125000" />
+      <workItem from="1749764820895" duration="497000" />
+      <workItem from="1749802945590" duration="641000" />
+      <workItem from="1749803669581" duration="8104000" />
+      <workItem from="1749811825713" duration="2559000" />
+      <workItem from="1749842250714" duration="1241000" />
+      <workItem from="1749843502633" duration="2548000" />
+      <workItem from="1749846220588" duration="1287000" />
+      <workItem from="1749886352811" duration="8464000" />
+      <workItem from="1749913968969" duration="3152000" />
+      <workItem from="1749921045025" duration="1640000" />
+      <workItem from="1749983535365" duration="7272000" />
+      <workItem from="1749991647417" duration="37000" />
+      <workItem from="1749991843774" duration="1273000" />
     </task>
     <task id="LOCAL-00028" summary="formattato anche la lista dei generi">
       <option name="closed" value="true" />
@@ -493,7 +322,327 @@
       <option name="project" value="LOCAL" />
       <updated>1749645171722</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="rimosso AbstractField,">
+      <option name="closed" value="true" />
+      <created>1749762921570</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1749762921570</updated>
+    </task>
+    <task id="LOCAL-00038" summary="aggiunto la funzionalità di modifica dei libri">
+      <option name="closed" value="true" />
+      <created>1749763410480</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1749763410480</updated>
+    </task>
+    <task id="LOCAL-00039" summary="refactoring generale">
+      <option name="closed" value="true" />
+      <created>1749764316290</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1749764316290</updated>
+    </task>
+    <task id="LOCAL-00040" summary="aggiunti altri stati">
+      <option name="closed" value="true" />
+      <created>1749804064942</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1749804064942</updated>
+    </task>
+    <task id="LOCAL-00041" summary="altro refactoring">
+      <option name="closed" value="true" />
+      <created>1749804095698</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1749804095698</updated>
+    </task>
+    <task id="LOCAL-00042" summary="modificato l'algoritmo di filtro per genere">
+      <option name="closed" value="true" />
+      <created>1749805165907</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1749805165907</updated>
+    </task>
+    <task id="LOCAL-00043" summary="riportato al vecchio stato">
+      <option name="closed" value="true" />
+      <created>1749810404274</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1749810404274</updated>
+    </task>
+    <task id="LOCAL-00044" summary="cambiata la logica di filtro">
+      <option name="closed" value="true" />
+      <created>1749810431513</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1749810431513</updated>
+    </task>
+    <task id="LOCAL-00045" summary="aggiunto dipendenze">
+      <option name="closed" value="true" />
+      <created>1749810444886</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1749810444886</updated>
+    </task>
+    <task id="LOCAL-00046" summary="riordinamento">
+      <option name="closed" value="true" />
+      <created>1749810486365</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1749810486365</updated>
+    </task>
+    <task id="LOCAL-00047" summary="creato field per i filtri">
+      <option name="closed" value="true" />
+      <created>1749810501675</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1749810501675</updated>
+    </task>
+    <task id="LOCAL-00048" summary="creato il dialog per i filtri">
+      <option name="closed" value="true" />
+      <created>1749810519079</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1749810519079</updated>
+    </task>
+    <task id="LOCAL-00049" summary="finito di modificare la logica">
+      <option name="closed" value="true" />
+      <created>1749811594520</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1749811594520</updated>
+    </task>
+    <task id="LOCAL-00050" summary="finito di modificare la logica">
+      <option name="closed" value="true" />
+      <created>1749811602570</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1749811602571</updated>
+    </task>
+    <task id="LOCAL-00051" summary="aggiunto definitivamente la funzione di ricerca">
+      <option name="closed" value="true" />
+      <created>1749811621145</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1749811621145</updated>
+    </task>
+    <task id="LOCAL-00052" summary="bug fixes">
+      <option name="closed" value="true" />
+      <created>1749813248457</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1749813248458</updated>
+    </task>
+    <task id="LOCAL-00053" summary="piccolo fix">
+      <option name="closed" value="true" />
+      <created>1749814043480</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1749814043480</updated>
+    </task>
+    <task id="LOCAL-00054" summary="piccolo fix">
+      <option name="closed" value="true" />
+      <created>1749844461770</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1749844461771</updated>
+    </task>
+    <task id="LOCAL-00055" summary="fix minuscolo">
+      <option name="closed" value="true" />
+      <created>1749887062920</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1749887062921</updated>
+    </task>
+    <task id="LOCAL-00056" summary="aggiunte classi per junit test">
+      <option name="closed" value="true" />
+      <created>1749887083804</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1749887083804</updated>
+    </task>
+    <task id="LOCAL-00057" summary="aggiornato pom">
+      <option name="closed" value="true" />
+      <created>1749887475615</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1749887475616</updated>
+    </task>
+    <task id="LOCAL-00058" summary="fatti i test per GestoreRicerche">
+      <option name="closed" value="true" />
+      <created>1749890634185</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1749890634185</updated>
+    </task>
+    <task id="LOCAL-00059" summary="fatti i test per GestoreRicerche">
+      <option name="closed" value="true" />
+      <created>1749890903446</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1749890903446</updated>
+    </task>
+    <task id="LOCAL-00060" summary="fatti i test anche per GestoreLibri">
+      <option name="closed" value="true" />
+      <created>1749893005179</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1749893005179</updated>
+    </task>
+    <task id="LOCAL-00061" summary="fixino">
+      <option name="closed" value="true" />
+      <created>1749893031233</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1749893031233</updated>
+    </task>
+    <task id="LOCAL-00062" summary="aggiustato dei tipi">
+      <option name="closed" value="true" />
+      <created>1749893883661</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1749893883662</updated>
+    </task>
+    <task id="LOCAL-00063" summary="refactoring">
+      <option name="closed" value="true" />
+      <created>1749893904766</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1749893904766</updated>
+    </task>
+    <task id="LOCAL-00064" summary="aggiustato un tipo">
+      <option name="closed" value="true" />
+      <created>1749893970260</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1749893970260</updated>
+    </task>
+    <task id="LOCAL-00065" summary="fixato un typo">
+      <option name="closed" value="true" />
+      <created>1749894029677</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1749894029677</updated>
+    </task>
+    <task id="LOCAL-00066" summary="fixato un problema con la modifica">
+      <option name="closed" value="true" />
+      <created>1749916948917</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1749916948918</updated>
+    </task>
+    <task id="LOCAL-00067" summary="aggiunto javadoc">
+      <option name="closed" value="true" />
+      <created>1749984419169</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1749984419170</updated>
+    </task>
+    <task id="LOCAL-00068" summary="creato validatore per libri">
+      <option name="closed" value="true" />
+      <created>1749987217977</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1749987217977</updated>
+    </task>
+    <task id="LOCAL-00069" summary="creato alert personalizzato">
+      <option name="closed" value="true" />
+      <created>1749987235514</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1749987235514</updated>
+    </task>
+    <task id="LOCAL-00070" summary="sostituizione alert vecchi con nuovo">
+      <option name="closed" value="true" />
+      <created>1749987457907</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1749987457907</updated>
+    </task>
+    <task id="LOCAL-00071" summary="fatto evento per eliminazione">
+      <option name="closed" value="true" />
+      <created>1749987490130</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1749987490130</updated>
+    </task>
+    <task id="LOCAL-00072" summary="fatto evento per aggiunta">
+      <option name="closed" value="true" />
+      <created>1749987504382</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1749987504382</updated>
+    </task>
+    <task id="LOCAL-00073" summary="fatto evento per modifica">
+      <option name="closed" value="true" />
+      <created>1749987514010</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1749987514010</updated>
+    </task>
+    <task id="LOCAL-00074" summary="creato tabella personalizzata">
+      <option name="closed" value="true" />
+      <created>1749987550168</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1749987550169</updated>
+    </task>
+    <task id="LOCAL-00075" summary="tolto responsabilità alla pagina principale">
+      <option name="closed" value="true" />
+      <created>1749987570849</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1749987570849</updated>
+    </task>
+    <task id="LOCAL-00076" summary="aggiunto libri d'esempio">
+      <option name="closed" value="true" />
+      <created>1749987580381</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1749987580381</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -524,32 +673,32 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/GestoreLibreria" />
     </ignored-roots>
-    <MESSAGE value="rimosso la classe Autore" />
+    <MESSAGE value="finito di modificare la logica" />
+    <MESSAGE value="aggiunto definitivamente la funzione di ricerca" />
+    <MESSAGE value="bug fixes" />
+    <MESSAGE value="piccolo fix" />
+    <MESSAGE value="fix minuscolo" />
+    <MESSAGE value="aggiunte classi per junit test" />
+    <MESSAGE value="aggiornato pom" />
+    <MESSAGE value="fatti i test per GestoreRicerche" />
+    <MESSAGE value="fatti i test anche per GestoreLibri" />
+    <MESSAGE value="fixino" />
+    <MESSAGE value="aggiustato dei tipi" />
     <MESSAGE value="refactoring" />
-    <MESSAGE value="aggiunto classe facade" />
-    <MESSAGE value="reso Libro un record" />
-    <MESSAGE value="aggiunti un paio di libri da test" />
-    <MESSAGE value="aggiunta la classe Facade" />
-    <MESSAGE value="reso libro builder e aggiustato un typo" />
-    <MESSAGE value="aggiustato dipendenze" />
-    <MESSAGE value="abbozzato una gui" />
-    <MESSAGE value="rimosso metodi inutili" />
-    <MESSAGE value="migliorato la gui" />
-    <MESSAGE value="aggiunto funzioni di aggiunta e rimozione libri" />
-    <MESSAGE value="rimosso file inutili" />
-    <MESSAGE value="perfezionato la rimozione dei libri" />
-    <MESSAGE value="aggiunto barra di ricerca" />
-    <MESSAGE value="perfezionato algoritmo di ricerca" />
-    <MESSAGE value="formattato output in tabella dello Stato" />
-    <MESSAGE value="formattato anche la lista dei generi" />
-    <MESSAGE value="creato un transfer dei field" />
-    <MESSAGE value="creato abstract factory dei dialog" />
-    <MESSAGE value="reso ISBN long" />
-    <MESSAGE value="reso ISBN long e aggiunto l'azione di inserimento libri definitivamente" />
-    <MESSAGE value="cambiato il modo in cui è generata la lista dei generi" />
-    <MESSAGE value="refactor" />
-    <MESSAGE value="cambiati i libri esempio" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambiati i libri esempio" />
+    <MESSAGE value="aggiustato un tipo" />
+    <MESSAGE value="fixato un typo" />
+    <MESSAGE value="fixato un problema con la modifica" />
+    <MESSAGE value="aggiunto javadoc" />
+    <MESSAGE value="creato validatore per libri" />
+    <MESSAGE value="creato alert personalizzato" />
+    <MESSAGE value="sostituizione alert vecchi con nuovo" />
+    <MESSAGE value="fatto evento per eliminazione" />
+    <MESSAGE value="fatto evento per aggiunta" />
+    <MESSAGE value="fatto evento per modifica" />
+    <MESSAGE value="creato tabella personalizzata" />
+    <MESSAGE value="tolto responsabilità alla pagina principale" />
+    <MESSAGE value="aggiunto libri d'esempio" />
+    <option name="LAST_COMMIT_MESSAGE" value="aggiunto libri d'esempio" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

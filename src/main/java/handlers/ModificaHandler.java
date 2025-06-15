@@ -1,23 +1,23 @@
-package front.bottoni;
+package handlers;
 
 import back.Facade;
+import back.transfer.Libro;
+import back.transfer.LibroValidator;
 import front.dialogs.DialogModifica;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.TableView;
-import transfer.Libro;
-import transfer.LibroValidator;
 
-public class BottoneModificaHandler implements EventHandler<ActionEvent> {
+public class ModificaHandler implements EventHandler<ActionEvent> {
 
     private final TableView<Libro> table;
     private final Facade facade;
 
-    public BottoneModificaHandler(TableView<Libro> table, Facade facade) {
+    public ModificaHandler(TableView<Libro> table) {
         this.table = table;
-        this.facade = facade;
+        this.facade = new Facade();
     }
 
     @Override
