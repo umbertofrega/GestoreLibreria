@@ -1,1 +1,21 @@
-/home/umberto/Documents/anno_2/ing_del_software/Progetto/GestoreLibreria/src/main/java/org/example/Main.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/back/Facade.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/back/gestori/GestoreLibri.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/back/gestori/GestoreRicerche.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/back/stati/Ordinamento.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/back/stati/Stato.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/back/transfer/Libro.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/back/transfer/LibroBuilder.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/back/transfer/LibroValidator.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/front/PaginaPrincipale.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/front/dialogs/AlertPersonale.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/front/dialogs/DialogAggiunta.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/front/dialogs/DialogFiltro.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/front/dialogs/DialogInterface.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/front/dialogs/DialogModifica.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/front/fields/FiltroFields.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/front/fields/InterfacciaFields.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/front/fields/LibroFields.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/front/tabella/TabellaPersonale.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/handlers/AggiuntaHandler.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/handlers/EliminazioneHandler.java
+/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/handlers/ModificaHandler.java
