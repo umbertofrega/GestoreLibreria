@@ -1,13 +1,19 @@
 # GestoreLibreria
 Progetto di Ingegneria del Software.
 
+## Dipendenze
+- Java 21
+
+
 ## Installazione
 ### Linux/MacOS
-
-Copia questa repository ed esegui il file esegui.sh
-`cd run 
- chmod +x esegui.sh
- java --module-path javafx-sdk-21/lib --add-modules javafx.controls,javafx.fxml \
-     -jar gestore-libri-1.0-SNAPSHOT-shaded.jar`
-
+Copia questa repository e copia nel terminale questi comandi:
+````
+cd run 
+chmod +x esegui.sh
+.\esegui.sh 
+````
+## Windows
+Copiare la repository, entrare in`/run` e fare doppio click su 
+`esegui.bat`
 
