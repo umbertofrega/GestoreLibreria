@@ -5,29 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b77f71e-82c9-464a-8a3f-c8585b859f95" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/EliminazioneHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/handlers/FiltroHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/prova.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/back/Facade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/Facade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/back/gestori/GestoreLibri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/gestori/GestoreLibri.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/back/gestori/GestoreRicerche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/gestori/GestoreRicerche.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/back/transfer/LibroValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/transfer/LibroValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/front/PaginaPrincipale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/PaginaPrincipale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/front/bottoni/AggiungiLibroHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/AggiuntaHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/front/bottoni/BottoneModificaHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/ModificaHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/front/bottoni/EliminaLibroHandler.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/front/dialogs/DialogAggiunta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/dialogs/DialogAggiunta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/front/dialogs/DialogFiltro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/dialogs/DialogFiltro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/front/dialogs/DialogModifica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/dialogs/DialogModifica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/front/tabella/TabellaPersonale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/tabella/TabellaPersonale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/transfer/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/transfer/Libro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/transfer/LibroBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/transfer/LibroBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/transfer/LibroValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/transfer/LibroValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/back/FacadeTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/back/gestori/GestoreLibriTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/back/gestori/GestoreLibriTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/back/gestori/GestoreRicercheTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/back/gestori/GestoreRicercheTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/ModificaHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/ModificaHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/data/libri.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data/libri.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
@@ -83,48 +71,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.FinestraAggiunta.executor": "Run",
-    "Application.GestoreRicerche.executor": "Run",
-    "Application.HelloFX.executor": "Run",
-    "Application.LibroGenerator.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.paginaPrincipale.executor": "Run",
-    "Application.prova.executor": "Run",
-    "Application.prove.executor": "Run",
-    "Maven.gestore-libri [clean,javafx:run].executor": "Run",
-    "Maven.gestore-libri [mvn,clean,javafx:run].executor": "Run",
-    "Maven.gestore-libri [mvn,javafx:run].executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "325",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java",
-    "last_opened_file_path": "/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java/back",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "editor.preferences.completion",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.FinestraAggiunta.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GestoreRicerche.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloFX.executor&quot;: &quot;Run&quot;,
+    &quot;Application.LibroGenerator.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.paginaPrincipale.executor&quot;: &quot;Run&quot;,
+    &quot;Application.prova.executor&quot;: &quot;Run&quot;,
+    &quot;Application.prove.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gestore-libri [clean,javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gestore-libri [mvn,clean,javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.gestore-libri [mvn,javafx:run].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;325&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/target&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.completion&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "CSS"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;CSS&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/target" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/front/Fields" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
@@ -248,71 +239,11 @@
       <workItem from="1749921045025" duration="1640000" />
       <workItem from="1749983535365" duration="7272000" />
       <workItem from="1749991647417" duration="37000" />
-      <workItem from="1749991843774" duration="1273000" />
-    </task>
-    <task id="LOCAL-00028" summary="formattato anche la lista dei generi">
-      <option name="closed" value="true" />
-      <created>1749465982000</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1749465982000</updated>
-    </task>
-    <task id="LOCAL-00029" summary="creato un transfer dei field">
-      <option name="closed" value="true" />
-      <created>1749639726314</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1749639726314</updated>
-    </task>
-    <task id="LOCAL-00030" summary="creato abstract factory dei dialog">
-      <option name="closed" value="true" />
-      <created>1749639750580</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1749639750580</updated>
-    </task>
-    <task id="LOCAL-00031" summary="creato abstract factory dei dialog">
-      <option name="closed" value="true" />
-      <created>1749639757106</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1749639757106</updated>
-    </task>
-    <task id="LOCAL-00032" summary="reso ISBN long">
-      <option name="closed" value="true" />
-      <created>1749643751521</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1749643751522</updated>
-    </task>
-    <task id="LOCAL-00033" summary="reso ISBN long e aggiunto l'azione di inserimento libri definitivamente">
-      <option name="closed" value="true" />
-      <created>1749644891237</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1749644891237</updated>
-    </task>
-    <task id="LOCAL-00034" summary="cambiato il modo in cui è generata la lista dei generi">
-      <option name="closed" value="true" />
-      <created>1749644953942</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1749644953942</updated>
-    </task>
-    <task id="LOCAL-00035" summary="refactor">
-      <option name="closed" value="true" />
-      <created>1749645156479</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1749645156479</updated>
+      <workItem from="1749991843774" duration="1809000" />
+      <workItem from="1749994610343" duration="464000" />
+      <workItem from="1749997264029" duration="2767000" />
+      <workItem from="1750000085084" duration="89000" />
+      <workItem from="1750001144850" duration="472000" />
     </task>
     <task id="LOCAL-00036" summary="cambiati i libri esempio">
       <option name="closed" value="true" />
@@ -642,7 +573,71 @@
       <option name="project" value="LOCAL" />
       <updated>1749987580381</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="mosso libro in back">
+      <option name="closed" value="true" />
+      <created>1749994244586</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1749994244587</updated>
+    </task>
+    <task id="LOCAL-00078" summary="mosso libro in back">
+      <option name="closed" value="true" />
+      <created>1749994252019</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1749994252020</updated>
+    </task>
+    <task id="LOCAL-00079" summary="mosso libro in back">
+      <option name="closed" value="true" />
+      <created>1749994272930</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1749994272930</updated>
+    </task>
+    <task id="LOCAL-00080" summary="rinominato EliminazioneHandler">
+      <option name="closed" value="true" />
+      <created>1749994303327</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1749994303327</updated>
+    </task>
+    <task id="LOCAL-00081" summary="refactoring">
+      <option name="closed" value="true" />
+      <created>1749994331257</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1749994331257</updated>
+    </task>
+    <task id="LOCAL-00082" summary="refactoring">
+      <option name="closed" value="true" />
+      <created>1749994339388</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1749994339388</updated>
+    </task>
+    <task id="LOCAL-00083" summary="modifica funzione valutaISBN">
+      <option name="closed" value="true" />
+      <created>1749998295922</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1749998295923</updated>
+    </task>
+    <task id="LOCAL-00084" summary="modifica funzione valutaISBN">
+      <option name="closed" value="true" />
+      <created>1749998312495</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1749998312495</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -673,10 +668,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/GestoreLibreria" />
     </ignored-roots>
-    <MESSAGE value="finito di modificare la logica" />
-    <MESSAGE value="aggiunto definitivamente la funzione di ricerca" />
-    <MESSAGE value="bug fixes" />
-    <MESSAGE value="piccolo fix" />
     <MESSAGE value="fix minuscolo" />
     <MESSAGE value="aggiunte classi per junit test" />
     <MESSAGE value="aggiornato pom" />
@@ -684,7 +675,6 @@
     <MESSAGE value="fatti i test anche per GestoreLibri" />
     <MESSAGE value="fixino" />
     <MESSAGE value="aggiustato dei tipi" />
-    <MESSAGE value="refactoring" />
     <MESSAGE value="aggiustato un tipo" />
     <MESSAGE value="fixato un typo" />
     <MESSAGE value="fixato un problema con la modifica" />
@@ -698,7 +688,12 @@
     <MESSAGE value="creato tabella personalizzata" />
     <MESSAGE value="tolto responsabilità alla pagina principale" />
     <MESSAGE value="aggiunto libri d'esempio" />
-    <option name="LAST_COMMIT_MESSAGE" value="aggiunto libri d'esempio" />
+    <MESSAGE value="mosso libro in back" />
+    <MESSAGE value="rinominato EliminazioneHandler" />
+    <MESSAGE value="mosso libro" />
+    <MESSAGE value="refactoring" />
+    <MESSAGE value="modifica funzione valutaISBN" />
+    <option name="LAST_COMMIT_MESSAGE" value="modifica funzione valutaISBN" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
