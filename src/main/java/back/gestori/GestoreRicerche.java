@@ -13,8 +13,21 @@ import java.util.List;
 public class GestoreRicerche {
 
     private static final ObjectMapper mapper = new ObjectMapper();
-    private static final File documento = new File("libri.json");
+    private static final File documento = apriJSON();
     private static final GestoreRicerche instance = new GestoreRicerche();
+
+    private static File apriJSON(){
+        File file = new File("libri.json");
+        if (file.exists()) {
+            return file;
+        }
+
+        file = new File("src/main/resources/data/libri.json");
+        if (file.exists()) {
+            return file;
+        }
+        return file;
+    }
 
     /*
      *  Rendo il costruttore private così che gli accessi alla

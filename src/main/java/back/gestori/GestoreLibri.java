@@ -16,9 +16,22 @@ import static back.gestori.GestoreRicerche.getLibri;
 public class GestoreLibri {
 
     private static final ObjectMapper mapper = new ObjectMapper();
-    private static final File documento = new File("libri.json");
+    private static final File documento = apriJSON();
     private static GestoreLibri instance = null;
 
+
+    private static File apriJSON(){
+        File file = new File("libri.json");
+        if (file.exists()) {
+            return file;
+        }
+
+        file = new File("src/main/resources/data/libri.json");
+        if (file.exists()) {
+            return file;
+        }
+        return file;
+    }
 
     /**
      * Permette di salvare un nuovo libro in memoria.
