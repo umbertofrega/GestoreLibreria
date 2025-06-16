@@ -1,23 +1,17 @@
 package back.gestori;
 
 import back.transfer.Libro;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.List;
-
-import static back.gestori.GestoreRicerche.getLibri;
 
 /**
  *  Una classe Singleton che gestisce il
  *  salvataggio in memoria secondaria dei libri.
  */
-public class GestoreLibri {
+public class GestoreLibri extends Gestore{
 
-    private static final ObjectMapper mapper = new ObjectMapper();
-    private static final File documento = new File(Path.of("src", "main", "resources", "data", "libri.json").toUri());
+
     private static GestoreLibri instance = null;
 
 
@@ -33,6 +27,7 @@ public class GestoreLibri {
         libri.add(libro);
         return scrivi(libri);
     }
+
 
     /**
      * Permette di salvare una lista di libri in memoria.

@@ -2,19 +2,12 @@ package back.gestori;
 
 import back.stati.Stato;
 import back.transfer.Libro;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GestoreRicerche {
+public class GestoreRicerche extends Gestore{
 
-    private static final ObjectMapper mapper = new ObjectMapper();
-    private static final File documento = new File(Path.of("src", "main", "resources", "data", "libri.json").toUri());
     private static final GestoreRicerche instance = new GestoreRicerche();
 
     /*
@@ -23,21 +16,6 @@ public class GestoreRicerche {
      */
     private GestoreRicerche() {}
 
-    /**
-     * Permette di ricevere la lista dei libri non ordinata
-     *
-     * @return Una lista di libri
-     */
-    public static List<Libro> getLibri(){
-        List<Libro> libri;
-
-        try {
-            libri = mapper.readValue(documento,new TypeReference<>(){});
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return libri;
-    }
 
     /**
      * Ritorna una lista di libri con solo i generi richiesti
