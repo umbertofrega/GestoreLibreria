@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.List;
 
 import static back.gestori.GestoreRicerche.getLibri;
@@ -16,7 +17,7 @@ import static back.gestori.GestoreRicerche.getLibri;
 public class GestoreLibri {
 
     private static final ObjectMapper mapper = new ObjectMapper();
-    private static final File documento = new File("libri.json");
+    private static final File documento = new File(Path.of("src", "main", "resources", "data", "libri.json").toUri());
     private static GestoreLibri instance = null;
 
 
