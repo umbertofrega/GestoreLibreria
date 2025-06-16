@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6b77f71e-82c9-464a-8a3f-c8585b859f95" name="Changes" comment="">
+    <list default="true" id="6b77f71e-82c9-464a-8a3f-c8585b859f95" name="Changes" comment="refactoring finale">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/back/gestori/GestoreLibri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/gestori/GestoreLibri.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/back/gestori/GestoreRicerche.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/gestori/GestoreRicerche.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/back/transfer/LibroValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/back/transfer/LibroValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/front/PaginaPrincipale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/PaginaPrincipale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/front/dialogs/DialogAggiunta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/dialogs/DialogAggiunta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/front/dialogs/DialogModifica.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/front/dialogs/DialogModifica.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/handlers/ModificaHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/handlers/ModificaHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data/libri.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data/libri.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/gestore-libri-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/libri.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/original-gestore-libri-1.0-SNAPSHOT.jar" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -90,7 +84,8 @@
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;provePerEseguibile&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/src/main/java&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/umberto/Documents/Scuola/Uni/Secondo Anno/Secondo Semestre/Ingegneria del Software/Progetto/GestoreLibreria/target&quot;,
@@ -244,38 +239,8 @@
       <workItem from="1749997264029" duration="2767000" />
       <workItem from="1750000085084" duration="89000" />
       <workItem from="1750001144850" duration="472000" />
-    </task>
-    <task id="LOCAL-00036" summary="cambiati i libri esempio">
-      <option name="closed" value="true" />
-      <created>1749645171722</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1749645171722</updated>
-    </task>
-    <task id="LOCAL-00037" summary="rimosso AbstractField,">
-      <option name="closed" value="true" />
-      <created>1749762921570</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1749762921570</updated>
-    </task>
-    <task id="LOCAL-00038" summary="aggiunto la funzionalità di modifica dei libri">
-      <option name="closed" value="true" />
-      <created>1749763410480</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1749763410480</updated>
-    </task>
-    <task id="LOCAL-00039" summary="refactoring generale">
-      <option name="closed" value="true" />
-      <created>1749764316290</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1749764316290</updated>
+      <workItem from="1750064343107" duration="321000" />
+      <workItem from="1750068124132" duration="76000" />
     </task>
     <task id="LOCAL-00040" summary="aggiunti altri stati">
       <option name="closed" value="true" />
@@ -637,7 +602,39 @@
       <option name="project" value="LOCAL" />
       <updated>1749998312495</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="refactoring finale">
+      <option name="closed" value="true" />
+      <created>1750064505889</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1750064505889</updated>
+    </task>
+    <task id="LOCAL-00086" summary="refactoring finale">
+      <option name="closed" value="true" />
+      <created>1750064514524</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1750064514524</updated>
+    </task>
+    <task id="LOCAL-00087" summary="refactoring finale">
+      <option name="closed" value="true" />
+      <created>1750064536303</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1750064536303</updated>
+    </task>
+    <task id="LOCAL-00088" summary="refactoring finale">
+      <option name="closed" value="true" />
+      <created>1750064606474</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1750064606474</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -668,7 +665,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/GestoreLibreria" />
     </ignored-roots>
-    <MESSAGE value="fix minuscolo" />
     <MESSAGE value="aggiunte classi per junit test" />
     <MESSAGE value="aggiornato pom" />
     <MESSAGE value="fatti i test per GestoreRicerche" />
@@ -693,7 +689,8 @@
     <MESSAGE value="mosso libro" />
     <MESSAGE value="refactoring" />
     <MESSAGE value="modifica funzione valutaISBN" />
-    <option name="LAST_COMMIT_MESSAGE" value="modifica funzione valutaISBN" />
+    <MESSAGE value="refactoring finale" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring finale" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
