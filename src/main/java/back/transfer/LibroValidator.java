@@ -6,11 +6,14 @@ import java.util.List;
 
 public class LibroValidator {
     public static boolean esisteISBN(Libro libro){
-        return esisteISBN(libro.isbn());
+        return esisteISBN(libro.isbn(), new Facade().getLibri());
     }
 
-    public static boolean esisteISBN(long ISBN){
-        List<Libro> libri = new Facade().getLibri();
+    public static boolean esisteISBN(String ISBN, List<Libro> libri) {
+        return esisteISBN(Long.parseLong(ISBN), libri);
+    }
+
+    public static boolean esisteISBN(long ISBN, List<Libro> libri){
         for (Libro l : libri) {
             if (l.isbn() == ISBN) {
                 return true;
@@ -20,7 +23,7 @@ public class LibroValidator {
     }
 
     public static boolean esisteISBN(String ISBN){
-        return esisteISBN(Long.parseLong(ISBN));
+        return esisteISBN(Long.parseLong(ISBN),new Facade().getLibri());
     }
 
     public static boolean verifica(String testo){
@@ -41,5 +44,6 @@ public class LibroValidator {
         if(testo.length()!=13) return false;
         return true;
     }
+
 
 }

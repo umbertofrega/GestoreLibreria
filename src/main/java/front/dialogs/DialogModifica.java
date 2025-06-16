@@ -5,21 +5,19 @@ import back.transfer.LibroBuilder;
 import back.transfer.LibroValidator;
 import front.fields.InterfacciaFields;
 import front.fields.LibroFields;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
-import static front.dialogs.DialogAggiunta.valutaFields;
 
 public class DialogModifica implements DialogInterface {
     Dialog<Libro> dialog = new Dialog<>();
     private Libro libro;
     private LibroFields fields;
+    private static TableView<Libro> table;
 
-    public DialogModifica(Libro libro) {
+    public DialogModifica(Libro libro,  TableView tabella) {
         this.libro = libro;
+        this.table = tabella;
     }
 
     public Dialog<Libro> creaDialog(){
@@ -58,12 +56,14 @@ public class DialogModifica implements DialogInterface {
             if(!f.getButtonData().equals(ButtonBar.ButtonData.OK_DONE))
                 return null;
             if(!valutaFields(fields)){
-                new AlertPersonale(Alert.AlertType.ERROR,"Attenzione!","Ehi...","Compila bene i campi").showAndWait();
+                String contenuto = "Due libri con lo stesso ISBN non possono esistere oppure devi riempire i campi con l'asterisco! ";
+                new AlertPersonale(Alert.AlertType.ERROR,"Attenzione!","Compila bene",contenuto).showAndWait();
+
             } else {
-                libroBuilder.isbn(Long.parseLong(fields.campoISBN.getText()))
-                        .titolo(fields.campoTitolo.getText())
-                        .autore(fields.campoAutore.getText())
-                        .generi(Libro.traduci(fields.campoGeneri.getText())).build();
+                libroBuilder.isbn(Long.parseLong(fields.campoISBN.getText().trim()))
+                        .titolo(fields.campoTitolo.getText().trim())
+                        .autore(fields.campoAutore.getText().trim())
+                        .generi(Libro.traduci(fields.campoGeneri.getText().trim())).build();
                 if (LibroValidator.valutaValutazione(fields.campoValutazione.getText())) {
                     libroBuilder.valutazione(Integer.parseInt(fields.campoValutazione.getText().trim()));
                 }
@@ -72,5 +72,25 @@ public class DialogModifica implements DialogInterface {
             }
             return null;
         });
+    }
+
+    private static boolean verifica(TextField campo){
+        return LibroValidator.verifica(campo.getText());
+    }
+
+    private static boolean valutaValutazione(TextField campo){
+        return LibroValidator.valutaValutazione(campo.getText());
+    }
+
+    private static boolean valutaISBN(TextField campo) {
+        return LibroValidator.valutaISBN(campo.getText());
+    }
+
+    private static boolean valutaFields(LibroFields fields){
+        return  valutaISBN(fields.campoISBN) &&
+                verifica(fields.campoTitolo) &&
+                verifica(fields.campoAutore) &&
+                verifica(fields.campoGeneri) &&
+                valutaValutazione(fields.campoValutazione);
     }
 }

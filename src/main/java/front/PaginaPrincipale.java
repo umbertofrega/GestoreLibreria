@@ -3,10 +3,10 @@ package front;
 import back.Facade;
 import back.stati.Ordinamento;
 import back.transfer.Libro;
+import front.dialogs.DialogFiltro;
 import front.tabella.TabellaPersonale;
 import handlers.AggiuntaHandler;
 import handlers.EliminazioneHandler;
-import handlers.FiltroHandler;
 import handlers.ModificaHandler;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -79,7 +79,16 @@ public class PaginaPrincipale extends Application {
 
         Button filtro = new Button();
         filtro.setText("Filtra");
-        filtro.setOnAction(new FiltroHandler(table));
+        filtro.setOnAction(e -> {
+            List<Libro> tabella = List.copyOf(table.getItems());
+            Dialog<List<Libro>> dialogFiltro = new DialogFiltro(tabella).creaDialog();
+            dialogFiltro.showAndWait();
+            List<Libro> risultato = dialogFiltro.getResult();
+            if (risultato != null) {
+                table.getItems().clear();
+                table.getItems().addAll(dialogFiltro.getResult());
+            }
+        });
 
         Button resetFiltri = new Button();
         resetFiltri.setText("Resetta ricerca");

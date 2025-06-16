@@ -7,14 +7,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
 public class GestoreRicerche {
 
     private static final ObjectMapper mapper = new ObjectMapper();
-    private static final File documento = new File(Path.of("src","main","resources","data","libri.json").toUri());
+    private static final File documento = new File("libri.json");
     private static final GestoreRicerche instance = new GestoreRicerche();
 
     /*

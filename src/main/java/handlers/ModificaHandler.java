@@ -3,6 +3,7 @@ package handlers;
 import back.Facade;
 import back.transfer.Libro;
 import back.transfer.LibroValidator;
+import front.dialogs.AlertPersonale;
 import front.dialogs.DialogModifica;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -22,38 +23,39 @@ public class ModificaHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        Libro selected = table.getSelectionModel().getSelectedItem();
+        Libro selezione = table.getSelectionModel().getSelectedItem();
 
-        if (selected == null) {
-            mostraAlert("Attenzione!", "Devi prima selezionare un libro!");
+        if (selezione == null) {
+            new AlertPersonale(Alert.AlertType.INFORMATION,"Attenzione!","","Devi prima selezionare un libro!");
             return;
         }
 
-        Libro libroOld = selected.clone();
+        Libro libroOld = selezione.clone();
 
-        Dialog<Libro> dialog = new DialogModifica(libroOld).creaDialog();
+        Dialog<Libro> dialog = new DialogModifica(libroOld,table).creaDialog();
         dialog.showAndWait();
 
         Libro libroNew = dialog.getResult();
 
+        if(libroNew == null) {
+            return;
+        }
+
         table.getItems().remove(libroOld);
 
-        if (libroNew == null || LibroValidator.esisteISBN(libroNew)) {
-            table.getItems().add(libroOld);
+        if (LibroValidator.esisteISBN(libroNew.isbn(),table.getItems())) {
+            String content = "Questo ISBN è già usato da un'altro libro";
+            new AlertPersonale(Alert.AlertType.INFORMATION,"Attenzione!","L'ISBN",content).showAndWait();
+            table.getItems().clear();
+            table.getItems().addAll(facade.getLibri());
         } else {
-            table.getItems().add(libroNew);
             if (!facade.aggiornaLibro(libroOld, libroNew)) {
-                mostraAlert("Ehm", "C'è stato un'errore nell'aggiornamento del libro");
+                new AlertPersonale(Alert.AlertType.ERROR,"Ehm","Scusa...","C'è stato un'errore nell'aggiornamento del libro");
+                return;
             }
+            table.getItems().clear();
+            table.getItems().addAll(facade.getLibri());
         }
     }
 
-    private void mostraAlert(String title, String content) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.show();
-    }
 }
