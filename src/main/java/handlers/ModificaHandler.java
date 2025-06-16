@@ -26,7 +26,7 @@ public class ModificaHandler implements EventHandler<ActionEvent> {
         Libro selezione = table.getSelectionModel().getSelectedItem();
 
         if (selezione == null) {
-            new AlertPersonale(Alert.AlertType.INFORMATION,"Attenzione!","","Devi prima selezionare un libro!");
+            new AlertPersonale(Alert.AlertType.INFORMATION,"Attenzione!","Ehi","Devi prima selezionare un libro!").showAndWait();
             return;
         }
 
