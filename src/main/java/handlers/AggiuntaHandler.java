@@ -3,6 +3,7 @@ package handlers;
 import back.Facade;
 import back.transfer.Libro;
 import back.transfer.LibroValidator;
+import front.dialogs.AlertPersonale;
 import front.dialogs.DialogAggiunta;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -29,17 +30,9 @@ public class AggiuntaHandler implements EventHandler<ActionEvent> {
             table.getItems().add(aggiunta);
 
             if (!facade.inserisciLibro(aggiunta)) {
-                mostraAlert("Ehm", "C'è stato un'errore nell'inserimento del libro");
+                String contenuto = "C'è stato un'errore nell'inserimento del libro";
+                new AlertPersonale(Alert.AlertType.ERROR,"Ehi...","Scusa",contenuto).showAndWait();
             }
         }
-    }
-
-    private void mostraAlert(String title, String content) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.getDialogPane().getStylesheets().add(getClass().getResource("/style.css").toExternalForm());
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.show();
     }
 }
